@@ -2,8 +2,7 @@ const GA_ENDPOINT = `https://www.google-analytics.com/collect`;
 
 // Domains to allowlist. Replace with your own!
 const originallowlist = [];
-// Update me.
-allowlistDomain("eleventy-high-performance-blog-sample.industrialempathy.com/");
+allowlistDomain("marcelfahle.net/");
 
 let hot = false;
 let age = Date.now();
@@ -12,7 +11,7 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-export default async function (req, event) {
+export default async function(req, event) {
   const url = new URL(req.url);
   if (req.method === "GET" && !url.search) {
     return new Response("OK", { status: 200 });
@@ -21,10 +20,7 @@ export default async function (req, event) {
   const origin = req.headers.get("origin") || "";
   console.log(`Received ${req.method} request from, origin: ${origin}`);
 
-  const isOriginallowlisted =
-    originallowlist.indexOf(origin) >= 0 ||
-    origin.endsWith("-cramforce.vercel.app") ||
-    origin.endsWith("-team-malte.vercel.app");
+  const isOriginallowlisted = originallowlist.indexOf(origin) >= 0;
   if (!isOriginallowlisted) {
     console.info("Bad origin", origin);
     return new Response("Not found", { status: 404 });

@@ -1,18 +1,33 @@
 ---
-title: Title. Update me.
+title: Hey, I'm Marcel!
 layout: layouts/home.njk
-description: Description. Update me.
+description: I'm a developer who likes Elixir and JS/TS.
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
 date: Last Modified
 ---
+<h1>{{ title }}</h1>
+<div class="sm:flex">
+  <div>
+    <p>
+      I'm a developer who likes Elixir and JS/TS, with a strong focus on empathy and DX. I currently work for awesome companies like commercetools and Digital Republic.
+    </p>
+    <p>
+      When I'm not tending our two toddlers, I loooove building products and work mostly on Bold Video and Pidro.
+    </p>
+    <p>
+      I love reading, traveling and running. And I'm pretty tall - 6'6''. 
+    </p>
+    <p>
+      I'm german and live in Spain.
+    </p>
+  </div>
+  <div class="max-w-[18rem] ml-4 mb-8">
+    <img src="/img/profile2022.jpg" alt="Marcel Fahle" />
+  </div>
+</div>
 
-<p>
-  This is a demo website based on 
-  <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
-</p>
-
-<div id="posts">
-  <h2>Posts</h2>
+<div id="posts" class="mt-12">
+  <h2 class="text-4xl">Latest Posts</h2>
   {% set postslist = collections.posts %}
   {% include "postslist.njk" %}
 </div>

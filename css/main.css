@@ -1,12 +1,49 @@
-/* Color customization */
+/* --------------------------------------------------------------------------
+Single variable font.
+
+Note that you may want to do something like this to make sure you're serving
+constant fonts to older browsers:
+html {
+  font-family: 'Inter UI', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter UI var', sans-serif;
+  }
+}
+*/
+/*! purgecss start ignore */
+@font-face {
+  font-family: "Inter UI";
+  font-weight: 100 900;
+  font-style: oblique 0deg 10deg;
+  src: url("/fonts/Inter-3.19.var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-weight: 100 900;
+  font-style: oblique 0deg 10deg;
+  src: url("/fonts/Newsreader[opsz,wght].woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-weight: 400 800;
+  font-style: oblique 0deg 10deg;
+  src: url("/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+}
+/* Colors and fonts */
 :root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60;
+  --primary: #41EAD4;
+  --primary-dark: #41ead4;
+  --font-family-headings: Cabinet Grotesk, sans-serif;
+  /* --font-family: Inter UI, sans-serif; */
+  --font-family: Newsreader, serif;
 }
 
 .test-dead-code-elimination-sentinel {
   color: red;
 }
+/*! purgecss end ignore */
 
 /*
   Make image rasterization lazy. This means that e.g. the cost of the
@@ -212,26 +249,6 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 */
-/* --------------------------------------------------------------------------
-Single variable font.
-
-Note that you may want to do something like this to make sure you're serving
-constant fonts to older browsers:
-html {
-  font-family: 'Inter UI', sans-serif;
-}
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'Inter UI var', sans-serif;
-  }
-}
-*/
-@font-face {
-  font-family: "Inter UI";
-  font-weight: 100 900;
-  font-style: oblique 0deg 10deg;
-  src: url("/fonts/Inter-3.19.var.woff2") format("woff2");
-}
 
 /*
 
@@ -404,6 +421,10 @@ summary {
 template {
   display: none;
 }
+
+
+/* typography starts here */
+
 h1 {
   font-size: 3em;
   line-height: 1.25;
@@ -451,7 +472,7 @@ ul {
   margin-bottom: 1.5em;
 }
 h1 {
-  font-size: 2.074rem;
+  font-size: 2.5rem;
 }
 h1,
 h2 {
@@ -483,7 +504,7 @@ ol,
 p,
 pre,
 ul {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.6;
 }
 ol,
@@ -494,7 +515,7 @@ ul {
 }
 @media (min-width: 600px) {
   h1 {
-    font-size: 4.3978rem;
+    font-size: 4rem;
     line-height: 4.4rem;
   }
   h1,
@@ -502,7 +523,7 @@ ul {
     margin-bottom: 1.496rem;
   }
   h2 {
-    font-size: 3.1097rem;
+    font-size: 3rem;
     line-height: 3.52rem;
   }
   h3 {
@@ -531,7 +552,7 @@ ul {
   p,
   pre,
   ul {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     line-height: 1.6;
   }
   ol,
@@ -543,9 +564,10 @@ ul {
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 6.0756rem;
-    line-height: 6.72rem;
+    font-size: 5rem;
+    line-height: 1.1;
   }
+  
   h1,
   h2 {
     margin-bottom: 1.632rem;
@@ -578,14 +600,17 @@ ul {
   body,
   ol,
   p,
-  pre,
   ul {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     line-height: 1.6;
+  }
+  pre {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2.2rem;
   }
   ol,
   p,
-  pre,
   ul {
     margin-bottom: 1.632rem;
   }
@@ -644,7 +669,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family);
+  font-family: var(--font-family-headings);
+  font-weight: 800;
 }
 h2,
 h4,
@@ -686,7 +712,6 @@ dt {
 }
 html {
   font-family: Inter UI, sans-serif;
-  --font-family: Inter UI, sans-serif;
 }
 form {
   padding: 1.5em 1.5em 0;
@@ -834,7 +859,7 @@ video {
 }
 body {
   font-family: var(--font-family);
-  background: #181818;
+  background: #191919;
   color: #eee;
 }
 section {
@@ -899,7 +924,7 @@ header nav h1 {
 header nav a {
   font-weight: 700;
   text-decoration: none;
-  font-family: var(--font-family);
+  font-family: var(--font-family-headings);
   color: #181818;
   margin-left: 1.5em;
 }
@@ -919,7 +944,6 @@ header nav label {
 main {
   max-width: 70rem;
   margin: 0 auto;
-  border-top: 0.5px solid #ccc;
 }
 footer {
   background: rgba(0, 0, 0, 0.8);
@@ -939,9 +963,12 @@ footer p {
 }
 article {
   max-width: 100%;
-  padding: 1.5em;
-  width: 37.5em;
+  padding: 1.5rem;
+  width: 45.5rem;
   margin: 0 auto;
+}
+article.home {
+  width: 57.5rem;
 }
 ol,
 ul {
@@ -1015,7 +1042,7 @@ code[class*="language-"] {
 }
 pre[class*="language-"] {
   padding: 1em;
-  margin: 0.5em 0;
+  margin: 2em -6rem;
   overflow: auto;
 }
 :not(pre) > code[class*="language-"],

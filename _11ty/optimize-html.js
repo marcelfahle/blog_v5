@@ -72,8 +72,8 @@ const purifyCss = async (rawContent, outputPath) => {
           extensions: ["html"],
         },
       ],*/
-      fontFace: true,
-      variables: true,
+      fontFace: false,
+      variables: false,
     });
 
     const after = csso.minify(purged[0].css).css;
