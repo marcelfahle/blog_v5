@@ -9,6 +9,7 @@ tags:
   - liveview
   - elixir
 layout: layouts/post.njk
+image: /img/videoupload-screen1.png
 ---
 Uploading large video files is something that I often do when I work on Bold. But even if you rely on an incredible API like Mux (which we do) or use all the shortcuts that Phoenix and LiveView provide, getting everything set up correctly is not always trivial. 
 
@@ -203,7 +204,7 @@ That means we need to take care of the actual uploading next. We will use the `p
   end
 ```
 
-Signed URL in hand, we'll stuff that together with the information which uploader to use into a map (`%{uploader: "UpChunk", endpoint: url}`), which LiveView will then hand over to JavaScript. Let's tackle that part next:
+Signed URL in hand, we'll stuff that together with the information which uploader to use into a map (`%{uploader: "UpChunk", endpoint: url}`), which LiveView will then hand over to JavaScript. Let's tackle that part next.
 First, we need to add UpChunk to our JS dependencies:
 
 ```shell
