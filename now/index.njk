@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+title: What I'm up to Now
+date: Last Modified
+templateClass: tmpl-post
+eleventyNavigation:
+  key: Now
+  order: 2
+---
+
+<div>
+{% block postTitle %}
+  <h1 class="text-center">{{ title }}</h1>
+{% endblock %}
+
+<aside class="text-xl -mt-4 text-center">Last updated <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></aside>
+
+
+{% block article %}
+<article>
+  <p>
+  Inspired by <a href="https://sive.rs" target="_blank">Derek Sivers'</a> <a href="https://sive.rs/nowff" target="_blank">Now movement</a>, here are a few things that I'm currently up to:
+  </p>
+  <h2>What I'm Doing</h2>
+  <ul class="nowlist pt-4">
+    <li>👨‍👩‍👧‍👦 Co-parenting a toddler and a baby. Easy peasy 😅</li>
+    <li>👷 Building the new Landing Page for <a href="https://wearebold.af" target="_blank">Bold</a>.</li>
+    <li>🎨 Working with <a href="https://timhartmann.eu/" target="_blank">Tim</a> on new Designs for the Bold Starter Kit.</li>
+    <li>✨ Dreaming about DX</li>
+    <li>🏂 Learn Snowboarding with our Toddler</li>
+    <li>🏃‍♂️ Planning my first Trail Running Races since our kids have been born</li>
+    <li>😵‍💫 Turned our freelance business into a proper SL </li>
+  </ul>
+  <h2>Content I like (Articles, Podcasts, Videos, etc)</h2>
+  <p>Usually I'm an avid ready, but since we had the kids, time to sit down with a book is extremely limited. So expect the book section of this to not be updated very frequently.</p>
+  <ul class="nowlist pt-4">
+    <li>📖 Ghosts of Spain (Giles Tremlett)</li> 
+    <li>📖 Never finished (David Goggins)</li> 
+    <li>📖 Influence (Robert Cialdini)</li> 
+    <li>📺 <a href="https://www.youtube.com/watch?v=P_VNQ6UIbS8" target="_blank">Floris Gierman: 10 Years of Low Heart Rate Training: Lessons From Running 17,000 Miles</a></li>
+    <li>📺 <a href="https://www.youtube.com/watch?v=Jay5b4vygig" target="_blank">MARDI HIMAL TREK ('Nepal' 8th wonder of the world)</a></li>
+    <li>📑 <a href="https://blog.codinghorror.com/rule-of-three/" target="_blank">The Rule of Three (Jeff Atwood)</a></li>
+    <li>📑 <a href="https://www.lennysnewsletter.com/p/how-todays-fastest-growing-b2b-businesses" target="_blank">How today's fastest growing B2B businesses found their first ten customers (Lenny Rachitsky)</a></li>
+  </ul>
+  
+</article>
+{% endblock %}
+</div>

@@ -2,32 +2,31 @@
 title: Hey, I'm Marcel!
 layout: layouts/home.njk
 description: I'm a developer who likes Elixir and JS/TS.
-image: /img/videoupload-screen1.png
 date: Last Modified
 ---
 <h1>{{ title }}</h1>
 <div class="sm:flex">
   <div>
     <p>
-      I'm a developer who likes Elixir and JS/TS, with a strong focus on empathy and DX. I currently work for awesome companies like commercetools and Digital Republic.
+      I'm a developer who likes Elixir and JS/TS, with a strong focus on empathy and DX. I currently work for awesome companies like <a href="https://commercetools.com" target="_blank">commercetools</a> and <a href="https://roove.de" target="_blank">Digital Republic</a>.
     </p>
     <p>
-      When I'm not tending our two toddlers, I loooove building products and work mostly on Bold Video and Pidro.
+      When I'm not tending our two toddlers, I loooove building products and work mostly on <a href="http://wearebold.af" target="_blank">Bold Video</a> and <a href="https://pidro.online">Pidro</a>.
     </p>
     <p>
       I love reading, traveling and running. And I'm pretty tall - 6'6''. 
     </p>
     <p>
-      I'm german and live in Spain.
+      I'm german and live in <a href="https://www.instagram.com/spain" target="_blank">Spain</a>
     </p>
   </div>
   <div class="max-w-[18rem] ml-4 mb-8">
-    <img src="/img/profile2022.jpg" alt="Marcel Fahle" />
+    <img class="rounded-full" src="/img/profile2022-square.jpg" alt="Marcel Fahle" />
   </div>
 </div>
 
 <div id="posts" class="mt-12">
-  <h2 class="text-4xl">Latest Posts</h2>
+  <h2 class="text-4xl">Posts</h2>
   {% set postslist = collections.posts %}
   {% include "postslist.njk" %}
 </div>
