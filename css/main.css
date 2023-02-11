@@ -35,6 +35,8 @@ html {
 :root {
   --primary: #41EAD4;
   --primary-dark: #41ead4;
+  --text-primary: #f4f4f4;
+  --text-subtle: #afafaf;
   --font-family-headings: Cabinet Grotesk, sans-serif;
   /* --font-family: Inter UI, sans-serif; */
   --font-family: Newsreader, serif;
@@ -431,7 +433,7 @@ h1 {
   margin-bottom: 0.5em;
 }
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 1.2;
   margin-bottom: 0.6em;
 }
@@ -462,7 +464,7 @@ ol,
 p,
 pre,
 ul {
-  font-size: 1em;
+  font-size: 18px;
   line-height: 1.5;
 }
 ol,
@@ -473,6 +475,7 @@ ul {
 }
 h1 {
   font-size: 2.5rem;
+  margin: 2.5em 0 1.5em;
 }
 h1,
 h2 {
@@ -504,8 +507,8 @@ ol,
 p,
 pre,
 ul {
-  font-size: 1.5rem;
-  line-height: 1.6;
+  font-size: 18rem;
+  line-height: 1.5;
 }
 ol,
 p,
@@ -515,15 +518,16 @@ ul {
 }
 @media (min-width: 600px) {
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 4.4rem;
+    margin: 2.5em 0 1.5em;
   }
   h1,
   h2 {
     margin-bottom: 1.496rem;
   }
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 3.52rem;
   }
   h3 {
@@ -552,8 +556,8 @@ ul {
   p,
   pre,
   ul {
-    font-size: 1.6rem;
-    line-height: 1.6;
+    font-size: 22px;
+    line-height: 1.5;
   }
   ol,
   p,
@@ -564,8 +568,9 @@ ul {
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     line-height: 1.1;
+    margin: 2.5em 0 1.5em;
   }
   
   h1,
@@ -573,8 +578,8 @@ ul {
     margin-bottom: 1.632rem;
   }
   h2 {
-    font-size: 4.05rem;
-    line-height: 4.8rem;
+    font-size: 2rem;
+    line-height: 1.8em;
   }
   h3 {
     font-size: 2.7rem;
@@ -601,8 +606,8 @@ ul {
   ol,
   p,
   ul {
-    font-size: 1.8rem;
-    line-height: 1.6;
+    font-size: 26px;
+    line-height: 1.5;
   }
   pre {
     font-size: 1.3rem;
@@ -675,10 +680,10 @@ h6 {
 h2,
 h4,
 h6 {
-  font-style: italic;
+  /* font-style: italic; */
 }
 a {
-  color: #f9c412;
+  color: var(--primary);
   text-decoration: none;
 }
 a:hover {
@@ -860,7 +865,7 @@ video {
 body {
   font-family: var(--font-family);
   background: #191919;
-  color: #eee;
+  color: #f4f4f4;
 }
 section {
   margin-left: auto;
@@ -892,7 +897,7 @@ header label {
   display: none;
 }
 header {
-  padding: 4.5em 1.5em 3em;
+  padding: 1.5rem 1.5rem 3rem;
   width: 37.5em;
   margin: 0 auto;
   text-align: center;
@@ -901,6 +906,7 @@ header {
   align-items: center;
   flex-direction: column;
 }
+
 header p {
   margin-top: 0;
 }
@@ -910,7 +916,7 @@ header nav {
   left: 0;
   width: 100vw;
   padding: 0.375em 1.5em;
-  background: hsla(0, 0%, 100%, 0.9);
+  background: hsla(0, 0%, 10%, 0.9);
   font-weight: 200;
   text-align: right;
 }
@@ -922,11 +928,25 @@ header nav h1 {
   text-align: left;
 }
 header nav a {
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.4rem;
   text-decoration: none;
   font-family: var(--font-family-headings);
-  color: #181818;
+  color: var(--text-primary);
+
+  /* color: #181818; */
+  /* color: white; */
   margin-left: 1.5em;
+}
+header nav a .subtitle {
+  display: inline-block;
+  line-height: 1;
+  color: var(--text-subtle);
+  margin-top: -0.5rem;
+}
+header nav a:hover {
+  text-decoration: none;
+  color: var(--primary); 
 }
 header nav a:first-of-type {
   margin-left: auto;
@@ -962,13 +982,17 @@ footer p {
   font-size: 90%;
 }
 article {
-  max-width: 100%;
+  max-width: 30em;
   padding: 1.5rem;
-  width: 45.5rem;
+  width: 100%;
   margin: 0 auto;
 }
 article.home {
   width: 57.5rem;
+}
+article.home h1 {
+  font-size: 3rem;
+  margin-top: 1.5em; 
 }
 ol,
 ul {

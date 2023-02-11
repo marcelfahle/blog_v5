@@ -9,11 +9,12 @@ templateClass: tmpl-post
 {% endblock %}
 
 {% block extraArticleHeader %}
-   {% set wc = content | striptags | wordcount %}
-   {% set wPerMinute = (wc / 240) + 1 %}
-   <aside>
-     {{ wPerMinute | round }} min read.
-   </aside>
+  {% set wc = content | striptags | wordcount %}
+  {% set wPerMinute = (wc / 240) + 1 %}
+  <aside class="text-xl">
+    Posted on <strong><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></strong> - 
+    Takes about <strong>{{ wPerMinute | round }} min</strong> to read.
+  </aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
