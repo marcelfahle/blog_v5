@@ -584,3 +584,8 @@ Now, all that's left is adding it to our show template:
 And there you have it: a working upload for large video files, a mighty fine encoding engine and API powered by Mux, and modern video playback that works on all platforms. Boom!
 In the next post, We'll explore how watermarking with Mux works, as I'm curious myself. **Always be learning!**
 
+
+**Were the technical explanations around Uploads in this post clear? Did everything work out as expected? 
+Is there something you didn't like?
+Please, let me know and send all feedback my way: [@marcelfahle](https://twitter.com/marcelfahle)**
+

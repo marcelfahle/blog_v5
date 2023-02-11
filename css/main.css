@@ -33,13 +33,13 @@ html {
 }
 /* Colors and fonts */
 :root {
-  --primary: #41EAD4;
+  --primary: #32fab9;
   --primary-dark: #41ead4;
   --text-primary: #f4f4f4;
   --text-subtle: #afafaf;
   --font-family-headings: Cabinet Grotesk, sans-serif;
   /* --font-family: Inter UI, sans-serif; */
-  --font-family: Newsreader, serif;
+  --font-family: Inter, sans-serif;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -582,8 +582,8 @@ ul {
     line-height: 1.8em;
   }
   h3 {
-    font-size: 2.7rem;
-    line-height: 2.88rem;
+    font-size: 1.8rem;
+    line-height: 1.88rem;
     margin-bottom: 1.632rem;
   }
   h4 {
@@ -676,6 +676,7 @@ h5,
 h6 {
   font-family: var(--font-family-headings);
   font-weight: 800;
+  color: white;
 }
 h2,
 h4,
