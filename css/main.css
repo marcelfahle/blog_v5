@@ -946,6 +946,13 @@ header nav a {
   /* color: white; */
   margin-left: 1.5em;
 }
+header #mobile-nav {
+  padding: 2rem 0;
+}
+header #mobile-nav a {
+  font-size: 2rem;
+  font-weight: 800;
+}
 header nav a .subtitle {
   display: inline-block;
   line-height: 1;
@@ -972,7 +979,10 @@ header nav label {
 header .mobile-nav-toggle {
   height: 32px;
   font-size: 1rem;
-  padding: 0.5em 1em;
+  padding: 0.5rem 1em;
+}
+header #mobile-nav li:last-of-type a {
+  margin-right: 0;
 }
 @media (min-width: 600px) {
   #mobile-nav {
