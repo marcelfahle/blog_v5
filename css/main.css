@@ -70,15 +70,15 @@ header nav {
 }
 
 /*! purgecss start ignore */
-:root {
-  --main-width: calc(100vw - 3em);
-}
+/* :root { */
+/*   --main-width: calc(100vw - 1rem); */
+/* } */
 
-@media (min-width: 37.5em) {
-  :root {
-    --main-width: calc(37.5em - 3em);
-  }
-}
+/* @media (min-width: 37.5em) { */
+/*   :root { */
+/*     --main-width: calc(37.5em - 3em); */
+/*   } */
+/* } */
 /*! purgecss end ignore */
 
 share-widget {
@@ -911,15 +911,22 @@ header {
 header p {
   margin-top: 0;
 }
-header nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+header #desktop-nav {
+
   width: 100vw;
-  padding: 0.375em 1.5em;
+  padding: 0.375em 1.5rem;
+  /* padding: 0.375em 1.5em; */
   background: hsla(0, 0%, 10%, 0.9);
   font-weight: 200;
   text-align: right;
+}
+header #desktop-nav ul {
+  display: none;
+}
+@media (min-width: 600px) {
+  header #desktop-nav ul {
+    display: block;
+  }
 }
 header nav h1 {
   float: left;
@@ -962,6 +969,20 @@ header nav label {
   font-style: normal;
   text-align: right;
 }
+header .mobile-nav-toggle {
+  height: 32px;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+}
+@media (min-width: 600px) {
+  #mobile-nav {
+    display: none !important;
+  }
+  header .mobile-nav-toggle {
+    display: none;
+  }
+}
+
 main {
   max-width: 70rem;
   margin: 0 auto;
@@ -989,7 +1010,8 @@ article {
   margin: 0 auto;
 }
 article.home {
-  width: 57.5rem;
+  width: 100%;
+  max-width: 57.5rem;
 }
 article.home h1 {
   font-size: 3rem;

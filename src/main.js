@@ -58,7 +58,7 @@ function message(msg) {
   var dialog = document.getElementById("message");
   dialog.textContent = msg;
   dialog.setAttribute("open", "");
-  setTimeout(function () {
+  setTimeout(function() {
     dialog.removeAttribute("open");
   }, 3000);
 }
@@ -98,7 +98,7 @@ document.documentElement.addEventListener("touchstart", prefetch, {
 const GA_ID = document.documentElement.getAttribute("ga-id");
 window.ga =
   window.ga ||
-  function () {
+  function() {
     if (!GA_ID) {
       return;
     }
@@ -108,7 +108,7 @@ ga.l = +new Date();
 ga("create", GA_ID, "auto");
 ga("set", "transport", "beacon");
 var timeout = setTimeout(
-  (onload = function () {
+  (onload = function() {
     clearTimeout(timeout);
     ga("send", "pageview");
   }),
@@ -166,7 +166,7 @@ if (/web-vitals.js/.test(sendWebVitals)) {
 
 addEventListener(
   "click",
-  function (e) {
+  function(e) {
     var button = e.target.closest("button");
     if (!button) {
       return;
@@ -182,13 +182,13 @@ addEventListener(
 var selectionTimeout;
 addEventListener(
   "selectionchange",
-  function () {
+  function() {
     clearTimeout(selectionTimeout);
     var text = String(document.getSelection()).trim();
     if (text.split(/[\s\n\r]+/).length < 3) {
       return;
     }
-    selectionTimeout = setTimeout(function () {
+    selectionTimeout = setTimeout(function() {
       ga("send", {
         hitType: "event",
         eventCategory: "selection",
@@ -274,3 +274,9 @@ for (let img of document.querySelectorAll("img")) {
     removeBlurredImage(img);
   }
 }
+
+const mobileMenu = document.getElementById("mobile-nav");
+const menuToggle = document.getElementsByClassName("mobile-nav-toggle")[0];
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
