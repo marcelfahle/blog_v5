@@ -1206,6 +1206,11 @@ a {
   color: var(--primary);
 }
 
+.nowlist {
+  list-style: disc;
+  padding-left: 1em;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
