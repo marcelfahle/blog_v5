@@ -8,5 +8,6 @@ tags:
   - elixir
 layout: layouts/post.njk
 image: /img/videoupload-screen1.png
+draft: true
 ---
 post in roam

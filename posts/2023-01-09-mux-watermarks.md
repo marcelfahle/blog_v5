@@ -1,5 +1,5 @@
 ---
-title: DRAFT -- Watermarking Videos with Mux and Phoenix LiveView
+title: draft -- Watermarking Videos with Mux and Phoenix LiveView
 description: Adding a watermark to your videos using Mux
 date: 2023-01-09
 tags:
@@ -11,5 +11,6 @@ tags:
   - watermarking
 layout: layouts/post.njk
 image: /img/videoupload-screen1.png
+draft: true
 ---
 post in roam
