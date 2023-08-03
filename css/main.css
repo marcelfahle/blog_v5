@@ -572,7 +572,7 @@ ul {
     line-height: 1.1;
     margin: 2.5em 0 1.5em;
   }
-  
+
   h1,
   h2 {
     margin-bottom: 1.632rem;
@@ -925,7 +925,8 @@ header #desktop-nav ul {
 }
 @media (min-width: 600px) {
   header #desktop-nav ul {
-    display: block;
+    display: flex;
+    line-height: 1;
   }
 }
 header nav h1 {
@@ -961,7 +962,7 @@ header nav a .subtitle {
 }
 header nav a:hover {
   text-decoration: none;
-  color: var(--primary); 
+  color: var(--primary);
 }
 header nav a:first-of-type {
   margin-left: auto;
@@ -980,6 +981,7 @@ header .mobile-nav-toggle {
   height: 32px;
   font-size: 1rem;
   padding: 0.5rem 1em;
+  margin-top: -7px;
 }
 header #mobile-nav li:last-of-type a {
   margin-right: 0;
@@ -1025,11 +1027,11 @@ article.home {
 }
 article.home h1 {
   font-size: 3rem;
-  margin-top: 0.5em; 
+  margin-top: 0.5em;
 }
 @media (min-width: 600px) {
   article.home h1 {
-    margin-top: 1.5em; 
+    /* margin-top: 1.5em; */
   }
 }
 ol,

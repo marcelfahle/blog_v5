@@ -8,13 +8,13 @@ date: Last Modified
 <div class="sm:flex">
   <div>
     <p>
-      I'm a developer who likes Elixir and JS/TS, with a strong focus on empathy and DX. I currently work for awesome companies like <a href="https://commercetools.com" target="_blank">commercetools</a> and <a href="https://roove.de" target="_blank">Digital Republic</a>.
+      I'm a passionate Elixir and JS/TS developer, with a strong focus on empathy and Developer Experience. I currently work on the frontend team at <a href="https://commercetools.com" target="_blank">commercetools</a>.
     </p>
     <p>
-      When I'm not hanging with our two toddlers, I enjoy building products and work mostly on <a href="http://wearebold.af" target="_blank">Bold Video</a> and <a href="https://pidro.online">Pidro</a>.
+      When I'm not hanging with our two toddlers, I enjoy building products. My main focus right now are <a href="http://wearebold.af" target="_blank">Bold Video</a>, a modern video platform for businesses, and <a href="https://pidro.online">Pidro</a>, a classic multiplayer card game for iOS and Android.
     </p>
     <p>
-      I love reading, traveling and running. And I'm pretty tall (2m). 
+      I love reading, traveling and running. And I'm pretty tall (2m).
     </p>
     <p>
       I'm german and live in <a href="https://www.instagram.com/spain" target="_blank">Spain 🇪🇸</a>
@@ -27,17 +27,18 @@ date: Last Modified
 
 <div class="mt-8">
   <h2 class="text-3xl">Subscribe</h2>
-  <p>Links to RSS feeds and social channels.</p>
-  <ul>
-    <li>RSS: <a href="https://marcelfahle.net/feed/feed.xml">feed.xml</a></li>
+  <ul id="main-nav">
+    {#<li>RSS: <a href="https://marcelfahle.net/feed/feed.xml">feed.xml</a></li>#}
     <li>Twitter: <a href="https://twitter.com/marcelfahle" target="_blank">@marcelfahle</a></li>
     <li>GitHub: <a href="https://github.com/marcelfahle/" target="_blank">marcelfahle</a></li>
     <li>LinkedIn: <a href="https://www.linkedin.com/in/marcelfahle/" target="_blank">marcelfahle</a></li>
   </ul>
 </div>
 
+{#
 <div id="posts" class="mt-12">
   <h2 class="text-4xl">Posts</h2>
   {% set postslist = collections.posts %}
   {% include "postslist.njk" %}
 </div>
+#}
