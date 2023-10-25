@@ -9,9 +9,8 @@ tags:
   - liveview
   - elixir
 layout: layouts/post.njk
-image: /img/videoupload-screen1.png
 ---
-Uploading large video files is something that I often do when I work on Bold. But even if you rely on an incredible API like Mux (which we do) or use all the shortcuts that Phoenix and LiveView provide, getting everything set up correctly is not always trivial. 
+Uploading large video files is something that I often do when I work on Bold. But even if you rely on an incredible API like Mux (which we do) or use all the shortcuts that Phoenix and LiveView provide, getting everything set up correctly is not always trivial.
 
 So let's walk through a complete example using Phoenix LiveView and Mux from start to finish.
 
@@ -100,7 +99,7 @@ We must also ensure that our manually generated ID gets passed down to the `Medi
 defp save_video(socket, :new, video_params) do
   video_params = Map.put(video_params, "id", socket.assigns.video.id)
 
-  case Media.create_video(video_params) do 
+  case Media.create_video(video_params) do
 [..]
 ```
 
@@ -116,7 +115,7 @@ Once you start the dev server with `mix phx.server` and navigate to [http://loca
 
 ## File upload
 
-Let's tackle the video uploads next. 
+Let's tackle the video uploads next.
 We start by adding the Mux API Wrapper to our dependencies.
 
 ```elixir
@@ -143,7 +142,7 @@ The way these kinds of uploads work is basically, once a user initiates an uploa
 
 We'll plug the uploader directly into our create video modal so that the actual upload only happens once the User clicks "Save Video" and submits the form.
 
-Let's start by accepting uploads for our video resource and let our LiveView request the signed upload URL. To do that, we need a few things: 
+Let's start by accepting uploads for our video resource and let our LiveView request the signed upload URL. To do that, we need a few things:
 
 First, we'll configure our uploader inside our video form's [update/2](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html#c:update/2) callback using [Phoenix.LiveView.allow_upload/3](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#allow_upload/3). We'll pass it a presign_upload/2 function to request our (external) signed URL from Mux. We'll write that function in a little bit:
 
@@ -156,9 +155,9 @@ First, we'll configure our uploader inside our video form's [update/2](https://h
     {:ok,
       socket
       |> assign(assigns)
-      |> allow_upload(:video_file, 
+      |> allow_upload(:video_file,
         accept: :any,
-        max_file_size: 100_000_000, 
+        max_file_size: 100_000_000,
         external: &presign_upload/2
       )
       |> assign(:changeset, changeset)}
@@ -179,7 +178,7 @@ This will give us an uploads assign on our socket connection, which lets us rend
 
 ![Upload Field](/img/videoupload-screen2.png)
 
-Once we hit the submit button, LiveView will process all the configured uploads in our form before invoking the `handle_event/3` callback for submitting the form. 
+Once we hit the submit button, LiveView will process all the configured uploads in our form before invoking the `handle_event/3` callback for submitting the form.
 
 That means we need to take care of the actual uploading next. We will use the `presign_upload/2` function to request a signed URL from Mux to begin uploading. We will also add our own video ID, which we created earlier, as a passthrough value, so we can link the Mux asset to our video resource once encoding is complete.
 
@@ -211,7 +210,7 @@ First, we need to add UpChunk to our JS dependencies:
 npm install --prefix assets --save @mux/UpChunk
 ```
 
-Next, we'll add the uploader function to our JS: 
+Next, we'll add the uploader function to our JS:
 
 ```js
 // assets/js/app.js
@@ -244,12 +243,12 @@ uploaders.UpChunk = function (entries, onViewError) {
 };
 
 let liveSocket = new LiveSocket("/live", Socket, {
-  uploaders, 
+  uploaders,
   params: {_csrf_token: csrfToken}
 })
 ```
 
-## Upload Progress 
+## Upload Progress
 
 In the code above, you'll see a few functions being called on the `entry` object (`progress()`, `error()`). Those are the callbacks our LiveView form provides to communicate back to it. Let's use that information to show the upload progress. We'll do that by adding a little progress bar to our markup, and I've added mine right under the [live_file_input](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#live_file_input/1) component:
 
@@ -265,7 +264,7 @@ Easy peasy.
 
 ## Webhooks
 
-The last missing piece to the puzzle is to wait for the Mux encoder to do its job processing our uploads. Thankfully, Mux will notify us via webhooks when everything is done, and all we need to do is to wait and listen for those webhooks. 
+The last missing piece to the puzzle is to wait for the Mux encoder to do its job processing our uploads. Thankfully, Mux will notify us via webhooks when everything is done, and all we need to do is to wait and listen for those webhooks.
 
 We'll start by adding an API route to our router, which Mux can then trigger with status updates:
 
@@ -281,9 +280,9 @@ end
 
 ### Webhooks on localhost:
 
-You're most likely developing this on a local development machine, a.k.a. your localhost, which is impossible for Mux to notify directly. 
+You're most likely developing this on a local development machine, a.k.a. your localhost, which is impossible for Mux to notify directly.
 
-The easiest way to make your localhost available to Mux and the outside world is by providing a secure tunnel using a tool like ngrok. It is a free tool and works great for our purpose. 
+The easiest way to make your localhost available to Mux and the outside world is by providing a secure tunnel using a tool like ngrok. It is a free tool and works great for our purpose.
 
 So, if your Phoenix app runs on localhost:4000, all you need to do is run ngrok with that port number, like so:
 
@@ -411,7 +410,7 @@ Now we can provide this function to the `:body_reader"` option of the Plug.Parse
 
 ```
 
-The Mux SDK comes with a [Mux.Webhooks.verify_header/4](https://hexdocs.pm/mux/Mux.Webhooks.html#verify_header/4) function, which makes the last verification step a breeze. We'll give it our webhook signing secret, which we set up earlier, as well as the webhook's signature header and the raw JSON that we now have access to: 
+The Mux SDK comes with a [Mux.Webhooks.verify_header/4](https://hexdocs.pm/mux/Mux.Webhooks.html#verify_header/4) function, which makes the last verification step a breeze. We'll give it our webhook signing secret, which we set up earlier, as well as the webhook's signature header and the raw JSON that we now have access to:
 
 ```elixir
 # lib/watermarkr_web/webhook_controller.ex
@@ -426,7 +425,7 @@ defmodule WatermarkrWeb.WebhookController do
     signature_header = List.first(get_req_header(conn, "mux-signature"))
     raw_body = List.first(conn.assigns.raw_body)
 
-    # verify that the incoming webhook is legit and only then 
+    # verify that the incoming webhook is legit and only then
     # process is. If verfication fails, return an error.
     case Mux.Webhooks.verify_header(
          raw_body,
@@ -453,15 +452,15 @@ defmodule WatermarkrWeb.WebhookController do
   # we pattern match on the webhook type, that way
   # it's easy to add more types to process
   defp process_mux("video.asset.ready", %{"id" => asset_id, "passthrough" => video_id, "playback_ids" => playback_ids}) do
-    # find our video in the database using the 
-    # passthrough value and updated it with the 
+    # find our video in the database using the
+    # passthrough value and updated it with the
     # asset and playback ids.
     # A Mux asset can have multiple playback ids but
-    # in our example we always grab the first one. 
-    video = Media.get_video!(video_id) 
+    # in our example we always grab the first one.
+    video = Media.get_video!(video_id)
     playback_id = hd(playback_ids)["id"]
     Media.update_video(video, %{asset_id: asset_id, playback_id: playback_id})
-    
+
   end
 
   # ignore all other webhook events
@@ -470,9 +469,9 @@ defmodule WatermarkrWeb.WebhookController do
 end
 ```
 
-## Bonus: Live updates 
+## Bonus: Live updates
 
-Cool, we're now updating our database after receiving webhooks from Mux. But waiting for those webhooks and manually refreshing our browser to see the result is not very LiveView'y. Let's update our LiveView once our video has been updated. 
+Cool, we're now updating our database after receiving webhooks from Mux. But waiting for those webhooks and manually refreshing our browser to see the result is not very LiveView'y. Let's update our LiveView once our video has been updated.
 
 We'll use [Phoenix.PubSub](https://hexdocs.pm/phoenix_pubsub/Phoenix.PubSub.html) to notify our LiveView about the updates. Everything is already set up on Phoenix's end, so all we need to do is to broadcast our message. I tend to call my broadcast functions from within context modules, especially regarding any sort of CRUD action, so let's do this here as well. We'll write a private `notify/2` function that we can then stick into our pipelines:
 
@@ -585,7 +584,7 @@ And there you have it: a working upload for large video files, a mighty fine enc
 In the next post, We'll explore how watermarking with Mux works, as I'm curious myself. **Always be learning!**
 
 
-**Were the technical explanations around Uploads in this post clear? Did everything work out as expected? 
+**Were the technical explanations around Uploads in this post clear? Did everything work out as expected?
 Is there something you didn't like?
 Please, let me know and send all feedback my way: [@marcelfahle](https://twitter.com/marcelfahle)**
 
