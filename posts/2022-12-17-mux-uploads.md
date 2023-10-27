@@ -9,6 +9,7 @@ tags:
   - liveview
   - elixir
 layout: layouts/post.njk
+image: /img/og/opengraph-mux-uploads.png
 ---
 Uploading large video files is something that I often do when I work on Bold. But even if you rely on an incredible API like Mux (which we do) or use all the shortcuts that Phoenix and LiveView provide, getting everything set up correctly is not always trivial.
 
