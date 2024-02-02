@@ -11,7 +11,7 @@ tags:
 layout: layouts/post.njk
 image: /img/og/opengraph-writingnothustling.png
 ---
-I learned that I work best if I write down what I think. Joan Didion nailed it when she said, “I don't know what I think until I write it down.” This blog is where I want to more of that – think out loud, minus the fuss about making it perfect, polishing or selling something.
+I learned that I work best if I write down what I think. Joan Didion nailed it when she said, “I don't know what I think until I write it down.” This blog is where I want to do more of that – think out loud, minus the fuss about making it perfect, polishing or selling something.
 
 So I'm shifting gears. This site isn’t for personal branding or hustling for likes and reach. It’s for me, and maybe for you, if you’re into exploring thoughts without the noise.
 
