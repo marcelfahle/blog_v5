@@ -11,9 +11,9 @@ tags:
 layout: layouts/post.njk
 image: /img/og/opengraph-writingnothustling.png
 ---
-I write to figure out what I think. Joan Didion nailed it when she said, “I don't know what I think until I write it down.” This blog is where I want to do that – think out loud, minus the fuss about making it perfect or selling something.
+I learned that I work best if I write down what I think. Joan Didion nailed it when she said, “I don't know what I think until I write it down.” This blog is where I want to more of that – think out loud, minus the fuss about making it perfect, polishing or selling something.
 
-So I'm shifting gears. This site isn’t for branding or reaching out for likes and reach. It’s for me, and maybe for you, if you’re into exploring thoughts without the noise.
+So I'm shifting gears. This site isn’t for personal branding or hustling for likes and reach. It’s for me, and maybe for you, if you’re into exploring thoughts without the noise.
 
 [Joel Hooks](https://joelhooks.com/on-writing-more/) actually put this once in a way that I'm super into:
 
@@ -23,9 +23,7 @@ So I'm shifting gears. This site isn’t for branding or reaching out for likes 
 >
 > This idea is toxic and led me to publish less and less over time.
 
-That’s the vibe I want here. More thinking, less showcasing.
+That’s the vibe I want here. More thinking, less showcasing and hustle.
 
 This place is for us to think, share, and maybe learn a bit along the way. No pressure, no polish. Just raw thoughts, figuring stuff out together.
-
-**That said, if all of this resonates, or you hate it, I'd love for you to hit me up [on the twitters](https://twitter.com/marcelfahle)!**
 
