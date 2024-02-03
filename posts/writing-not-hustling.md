@@ -13,7 +13,7 @@ image: /img/og/opengraph-writingnothustling.png
 ---
 I learned that I work best if I write down what I think. Joan Didion nailed it when she said, “I don't know what I think until I write it down.” This blog is where I want to do more of that – think out loud, minus the fuss about making it perfect, polishing or selling something.
 
-So I'm shifting gears. This site isn’t for personal branding or hustling for likes and reach. It’s for me, and maybe for you, if you’re into exploring thoughts without the noise.
+So I'm shifting gears, [yet again](https://marcelfahle.net/posts/2023-10-25-reboot). This site isn’t for personal branding or hustling for likes and reach. It’s for me, and maybe for you, if you’re into exploring thoughts without the noise.
 
 [Joel Hooks](https://joelhooks.com/on-writing-more/) actually put this once in a way that I'm super into:
 
