@@ -11,11 +11,11 @@ layout: layouts/post.njk
 image: /img/og/opengraph-runslow.png
 ---
 
-Most people I talk to about on how to become a runner, approaching it the wrong way.
+Most people I talk to are approaching becoming a runner the wrong way.
 
 They treat it as a grueling workout, something that has to be difficult. You have to sweat and pant, your head needs to be tomato-red - after all, it's a sport!
 
-And why there are great benefits to high-intensity workouts, if you want to become a runner, there's a better approach. You need to slow down.
+And while there are great benefits to high-intensity workouts, if you want to become a runner, there's a better approach. You need to slow down.
 
 Here's why:
 
@@ -39,4 +39,4 @@ I've had conversations about this countless of times, and I know, it's embarrass
 
 Whatever you have to do, to get over this feeling, trust me, it's worth it.
 
-You can hit me up on [Strava](https://www.strava.com/athletes/18230818), and we'll go through this together. 💪
+Hit me up on [Strava](https://www.strava.com/athletes/18230818), and we'll go through this together. 💪
