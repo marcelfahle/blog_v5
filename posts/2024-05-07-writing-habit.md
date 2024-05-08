@@ -19,7 +19,7 @@ By writing my thoughts down and putting the loose ramblings of the mind into act
 
 ### It flexes my publishing muscle.
 
-I'm a software engineer and terrible at marketing myself. I'm also believe that I'm huge imposter.
+I'm a software engineer and terrible at marketing myself. I also believe that I'm huge imposter.
 
 Instead of putting something I've built out there, I usually come up with more and more things to add or improve, or some other distraction altogether. Publishing terrifies me for some reason.
 
@@ -33,6 +33,6 @@ Being a good communicator is an essential skill, not only in professional enviro
 
 That's a skill that I admire most notably on great comedians. They're able to turn the most mundane situations into engaging and hilarious stories. They notice the little things in life and realize that's something they can connect with the audience on.
 
-So and when I walk through life, constantly alert for things to bang out an atomic essay or two on, I believe that I'll also flex that "noticing" muscle.
+So, as I walk through life, constantly alert for things to write an atomic essay or two about, I believe that I'll also flex that 'noticing' muscle
 
 So, I hope you can join me. I'm excited to see where all of this leads.
