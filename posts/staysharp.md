@@ -30,3 +30,7 @@ We are so blessed that we have our brains to create things and solve complex pro
 Shortcuts may lead to quicker results, but often at the expense of quality. I see this with code every day. Sure, the work AI spits out often looks impressive, but if you look closer it's actually very shallow, lacks attention to detail and precision.
 
 So, keep this in mind when you reach for AI tools in your daily life. Don't let it take over the things you care about or want to learn. Use it as a sidekick that pokes holes into your own arguments or does brainstorming jam-sessions with you. But don't let it put in the reps for you.
+
+I'll finish this off with the words of Jason and Brian from [GFDA](https://gfda.co): "A computer is a Lite-Brite for bad fucking ideas" 😁
+
+**How do you use AI in your daily life? Do you have any tips on how to not overdo it? Hit me up [on the twitters](https://twitter.com/marcelfahle), I would love to hear more about that!**
