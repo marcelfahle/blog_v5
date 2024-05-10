@@ -1,5 +1,5 @@
 ---
-title: Stay Sharp: Resist Overusing AI
+title: "Stay Sharp: Resist Overusing AI"
 description:
 date: 2024-05-10
 tags:
