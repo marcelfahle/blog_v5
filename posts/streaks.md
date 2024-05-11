@@ -1,5 +1,5 @@
 ---
-title: Why I don't like streaks
+title: Why I don't like Streaks
 description:
 date: 2024-05-11
 tags:
