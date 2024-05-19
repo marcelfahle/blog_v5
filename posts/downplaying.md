@@ -4,7 +4,7 @@ description:
 date: 2024-05-19
 tags:
   - self improvement
-  - self discovery
+  - self-discovery
   - vulnerability
   - self-doubt
 layout: layouts/post.njk
