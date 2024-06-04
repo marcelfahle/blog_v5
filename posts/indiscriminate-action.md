@@ -12,9 +12,9 @@ image: /img/og/opengraph-indiscriminateaction.png
 
 Indiscriminate action is laziness.
 
-Tim Ferriss said that, and it hit me hard. I used to navigate my tasks like a squirrel in traffic, darting from one thing to another without thought. Whatever gives me the hardest dopamine hit, gets worked on. But that's wrong.
+Tim Ferriss said that, [sort of](https://tim.blog/2013/11/03/productivity-hacks/), and it hit me hard. I used to navigate my tasks like a squirrel in traffic, darting from one thing to another without thought. Whatever gives me the hardest dopamine hit, gets worked on. But that's wrong.
 
-Indiscriminate action means doing tasks without purpose or priority. It's like watering a garden by spraying water everywhere, hoping something will grow. Real productivity comes from focused effort, not random busyness. Tony Robbins also nailed it when he said, "Most people fail in life because they major in minor things." Focusing on trivial tasks leads nowhere.
+Indiscriminate action means doing tasks without purpose or priority. It's like watering a garden by spraying water everywhere, hoping something will grow. Real productivity comes from focused effort, not random busyness. Tony Robbins also nailed it when he said, ["Most people fail in life because they major in minor things."](https://x.com/TonyRobbins/status/796837797982183424) Focusing on trivial tasks leads nowhere.
 
 Taking focused action requires mental effort. You need to analyze tasks, plan thoughtful and prioritze, and make strategic decisions about time and resources. Indiscriminate action often avoids this discomfort. It’s easier to do lots of small, unimportant tasks than to face a few big, challenging ones. This avoidance can feel like laziness because it dodges deeper thinking and responsibility.
 
