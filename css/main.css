@@ -191,6 +191,26 @@ header aside {
   }
 }
 
+h3 {
+  border-bottom: 1px solid var(--primary);
+}
+
+.stats {
+  list-style: '➭  ';
+  font-size: 1.4rem;    
+}
+.stats li {
+  margin-bottom: 1.5em;
+
+}
+.stats li strong {
+  /* color: var(--primary); */
+}
+.stats li .img-wrapper {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 
 /* https://github.com/rsms/inter/blob/master/LICENSE.txt
 
