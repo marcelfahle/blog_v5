@@ -1,5 +1,5 @@
 ---
-title: The Smarter You Feel the Less You Grow
+title: The Smarter You Feel, the Less You Grow
 description:
 date: 2024-11-01
 tags:
