@@ -12,7 +12,7 @@ layout: layouts/post.njk
 image: /img/og/opengraph-quantity.png
 ---
 
-Asmost every day, I write and publish an essay. It's part of a challenge called Ship 30 for 30. Some essays might seem bad, and ideas might look unfinished. That's okay. The goal is to publish.
+Almost every day, I write and publish an essay. It's part of a challenge called Ship 30 for 30. Some essays might seem bad, and ideas might look unfinished. That's okay. The goal is to publish.
 
 Writing a lot helps me improve. It's like learning by doing. If I wait for each piece to be perfect, I might never share anything.
 
