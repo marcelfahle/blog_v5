@@ -69,6 +69,23 @@ header nav {
   z-index: 1;
 }
 
+#main-nav-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.newsletter-form2 {
+  padding: 0;
+  border: none;
+}
+
+.newsletter-form2 button {
+  margin: 0;
+}
+.newsletter-form-header {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
 /*! purgecss start ignore */
 /* :root { */
 /*   --main-width: calc(100vw - 1rem); */
@@ -196,12 +213,11 @@ h3 {
 }
 
 .stats {
-  list-style: '➭  ';
-  font-size: 1.4rem;    
+  list-style: "➭  ";
+  font-size: 1.4rem;
 }
 .stats li {
   margin-bottom: 1.5em;
-
 }
 .stats li strong {
   /* color: var(--primary); */
@@ -210,7 +226,6 @@ h3 {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-
 
 /* https://github.com/rsms/inter/blob/master/LICENSE.txt
 
@@ -483,7 +498,6 @@ template {
   display: none;
 }
 
-
 /* typography starts here */
 
 h1 {
@@ -702,7 +716,12 @@ table {
   overflow-x: auto;
 }
 pre {
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-family:
+    Consolas,
+    Monaco,
+    Andale Mono,
+    Ubuntu Mono,
+    monospace;
 }
 pre code:not([class]) {
   padding: 1.5em;
@@ -713,7 +732,12 @@ kbd {
   border-radius: 0.3em;
   color: #e2777a;
   padding: 0 0.3em;
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-family:
+    Consolas,
+    Monaco,
+    Andale Mono,
+    Ubuntu Mono,
+    monospace;
   font-size: 90%;
 }
 code,
@@ -776,7 +800,9 @@ dt {
   }
 }
 html {
-  font-family: Inter UI, sans-serif;
+  font-family:
+    Inter UI,
+    sans-serif;
 }
 form {
   padding: 1.5em 1.5em 0;
@@ -971,7 +997,6 @@ header p {
   margin-top: 0;
 }
 header #desktop-nav {
-
   width: 100vw;
   padding: 0.375em 1.5rem;
   /* padding: 0.375em 1.5em; */
@@ -1145,7 +1170,12 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: #ccc;
   background: none;
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  font-family:
+    Consolas,
+    Monaco,
+    Andale Mono,
+    Ubuntu Mono,
+    monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
