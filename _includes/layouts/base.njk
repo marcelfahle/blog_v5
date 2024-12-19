@@ -13,14 +13,13 @@
   {% else %}
   <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
   {% endif %}
-  {% if image %}
-  <meta name="image" property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
-  {% endif %}
+
   <meta property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
   <meta name="theme-color" content="#f9c412">
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
   <title>{{ renderData.title or title or metadata.title | escape }}</title>
   <meta property="og:title" content="{{ renderData.title or title or metadata.title | escape  }}">
+  <meta property="og:type" content="article">
   {% set desc = renderData.description or description %}
   {% if not desc %}
   {% set desc = content | striptags | truncate(140) %}
@@ -32,6 +31,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
   <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
+  <meta name="twitter:title" content="{{ renderData.title or title or metadata.title | escape  }}">
+  <meta name="twitter:description" content="{{ desc | escape  }}">
+  {% if image %}
+  <meta name="image" property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
+  <meta name="twitter:image" content="{{ image | absoluteUrl(metadata.url) }}">
+  {% endif %}
 
 
   <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
