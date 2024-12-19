@@ -49,7 +49,9 @@ templateClass: tmpl-post
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "{{ title }}",
-      "image": [],
+      "image": [
+        "{{ image | absoluteUrl(metadata.url) }}"
+      ],
       "author": "{{ metadata.author.name }}",
       "genre": "{{ metadata.genre }}",
       "publisher": {

@@ -16,6 +16,7 @@
   {% if image %}
   <meta name="image" property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
   {% endif %}
+  <meta property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
   <meta name="theme-color" content="#f9c412">
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
   <title>{{ renderData.title or title or metadata.title | escape }}</title>
