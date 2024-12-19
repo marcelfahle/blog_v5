@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
-  eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
+  // eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   // eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
   eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
