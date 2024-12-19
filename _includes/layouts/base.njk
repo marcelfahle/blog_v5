@@ -36,6 +36,9 @@
   {% if image %}
   <meta name="image" property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
   <meta name="twitter:image" content="{{ image | absoluteUrl(metadata.url) }}">
+  {% else %}
+  <meta name="image" property="og:image" content="{{ "/img/og/opengraph-default.png" | absoluteUrl(metadata.url) }}">
+  <meta name="twitter:image" content="{{ "/img/og/opengraph-default.png" | absoluteUrl(metadata.url) }}">
   {% endif %}
 
 
