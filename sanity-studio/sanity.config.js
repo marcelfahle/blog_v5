@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: "Marcel's Blog",
 
-  projectId: '9mo6onv2',
-  dataset: 'production',
+  projectId: process.env.SANITY_PROJECT_ID || import.meta.env.VITE_SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET || import.meta.env.VITE_SANITY_DATASET || 'production',
 
   plugins: [deskTool(), visionTool()],
 

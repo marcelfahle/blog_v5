@@ -1,0 +1,2 @@
+[build.processing.secrets]
+  excluded = ["SANITY_PROJECT_ID", "SANITY_DATASET"]
