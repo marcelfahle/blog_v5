@@ -1,7 +1,8 @@
 ---
 layout: layouts/base.njk
-title: What I'm up to Now
-date: Last Modified
+eleventyComputed:
+  title: "{% if sanityPages.now %}{{ sanityPages.now.title }}{% else %}What I'm up to Now{% endif %}"
+  description: "{% if sanityPages.now %}{{ sanityPages.now.description }}{% else %}Current projects and interests{% endif %}"
 templateClass: tmpl-post
 eleventyNavigation:
   key: Now
@@ -10,38 +11,55 @@ eleventyNavigation:
 
 <div>
 {% block postTitle %}
-  <h1 class="text-center">{{ title }}</h1>
+  {% if sanityPages.now %}
+    <h1 class="text-center">{{ sanityPages.now.title }}</h1>
+  {% else %}
+    <h1 class="text-center">What I'm up to Now</h1>
+  {% endif %}
 {% endblock %}
 
-<aside class="text-xl -mt-4 text-center">Last updated <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></aside>
-
+<aside class="text-xl -mt-4 text-center">
+  Last updated 
+  {% if sanityPages.now %}
+    <time datetime="{{ sanityPages.now.lastUpdated | htmlDateString }}">{{ sanityPages.now.lastUpdated | readableDate }}</time>
+  {% else %}
+    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  {% endif %}
+</aside>
 
 {% block article %}
 <article>
-  <p>
-  Inspired by <a href="https://sive.rs" target="_blank">Derek Sivers'</a> <a href="https://sive.rs/nowff" target="_blank">Now movement</a>, here are a few things that I'm currently up to:
-  </p>
-  <h2>What I'm Doing</h2>
-  <ul class="nowlist pt-4">
-    <li>👨‍👩‍👧‍👦 Co-parenting two toddlers. Easy peasy 😅</li>
-    <li>👷 Working on the positioning for <a href="https://bold.video" target="_blank">Bold</a>.</li>
-    <li>🎨 Improving the transcriptions and subtitles for Bold.</li>
-    <li>🎨 Building a new landing page for <a href="_blank" href="https://pidro.online">Pidro</a>.</li>
-    <li>🏃‍♂️ Helping my wife train for her next mountain ultra race at <a href="https://valdaran.utmb.world" target="_blank">Val d'Aran by UTMB</a> in July.</li>
-    <li>⌨️  Improving my typing speed (currently ~70wpm)</li>
-  </ul>
-  <h2>Content I'm currently into</h2>
-  <p>Usually I'm an avid reader, but since we had the kids, time to sit down with a book is extremely limited. So expect the book section of this to not be updated very frequently.</p>
-  <ul class="nowlist pt-4">
-    <li>📖 This is personal (Brennan Dunn)</li>
-    <li>📖 Share like an Artist (Austin Kleon)</li>
-    <li>📖 $100M Offers / $100M Leads (Alex Hormozi)</li>
-    <li>📺 <a href="https://connect.microconf.com/library" target="_blank">The Microconf Content Vault</a></li>
-    <li>📺 <a href="https://www.youtube.com/watch?v=xBIunfCV8Fo" target="_blank">MARRIED TO 2 BROTHERS - Discovering a Secret Tibetan Village in the Himalayas - Upper Mustang, Nepal</a></li>
-    <li>📑 <a href="https://dashbit.co/blog/latency-rendering-liveview?utm_source=marcelfahle.net" target="_blank">Supercharge your app: latency and rendering optimizations in Phoenix LiveView</a></li>
-    <li>📑 <a href="https://www.lennysnewsletter.com/p/how-todays-fastest-growing-b2b-businesses" target="_blank">How today's fastest growing B2B businesses found their first ten customers (Lenny Rachitsky)</a></li>
-  </ul>
-
+  {% if sanityPages.now %}
+    <!-- Content from Sanity CMS -->
+    <div class="now-content">
+      {{ sanityPages.now.content | safe }}
+    </div>
+  {% else %}
+    <!-- Fallback content if Sanity not configured -->
+    <p>
+    Inspired by <a href="https://sive.rs" target="_blank">Derek Sivers'</a> <a href="https://sive.rs/nowff" target="_blank">Now movement</a>, here are a few things that I'm currently up to:
+    </p>
+    <h2>What I'm Doing</h2>
+    <ul class="nowlist pt-4">
+      <li>👨‍👩‍👧‍👦 Co-parenting two toddlers. Easy peasy 😅</li>
+      <li>👷 Working on the positioning for <a href="https://bold.video" target="_blank">Bold</a>.</li>
+      <li>🎨 Improving the transcriptions and subtitles for Bold.</li>
+      <li>🎨 Building a new landing page for <a href="_blank" href="https://pidro.online">Pidro</a>.</li>
+      <li>🏃‍♂️ Helping my wife train for her next mountain ultra race at <a href="https://valdaran.utmb.world" target="_blank">Val d'Aran by UTMB</a> in July.</li>
+      <li>⌨️  Improving my typing speed (currently ~70wpm)</li>
+    </ul>
+    <h2>Content I'm currently into</h2>
+    <p>Usually I'm an avid reader, but since we had the kids, time to sit down with a book is extremely limited. So expect the book section of this to not be updated very frequently.</p>
+    <ul class="nowlist pt-4">
+      <li>📖 This is personal (Brennan Dunn)</li>
+      <li>📖 Share like an Artist (Austin Kleon)</li>
+      <li>📖 $100M Offers / $100M Leads (Alex Hormozi)</li>
+      <li>📺 <a href="https://connect.microconf.com/library" target="_blank">The Microconf Content Vault</a></li>
+      <li>📺 <a href="https://www.youtube.com/watch?v=xBIunfCV8Fo" target="_blank">MARRIED TO 2 BROTHERS - Discovering a Secret Tibetan Village in the Himalayas - Upper Mustang, Nepal</a></li>
+      <li>📑 <a href="https://dashbit.co/blog/latency-rendering-liveview?utm_source=marcelfahle.net" target="_blank">Supercharge your app: latency and rendering optimizations in Phoenix LiveView</a></li>
+      <li>📑 <a href="https://www.lennysnewsletter.com/p/how-todays-fastest-growing-b2b-businesses" target="_blank">How today's fastest growing B2B businesses found their first ten customers (Lenny Rachitsky)</a></li>
+    </ul>
+  {% endif %}
 </article>
 {% endblock %}
 </div>

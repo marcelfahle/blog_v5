@@ -1,0 +1,71 @@
+---
+pagination:
+  data: sanityPosts
+  size: 1
+  alias: post
+permalink: "/posts/{{ post.slug }}/"
+layout: layouts/base.njk
+eleventyComputed:
+  title: "{{ post.seo.title }}"
+  description: "{{ post.seo.description }}"
+---
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  .gallery-item figcaption {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+</style>
+
+<article class="tmpl-post">
+  <header>
+    {% if post.image %}
+    <img 
+      src="{{ post.image }}?w=800&h=400&fit=crop" 
+      alt="{{ post.title }}"
+      class="w-full h-64 md:h-80 object-cover rounded-lg mb-6"
+      loading="eager"
+    >
+    {% endif %}
+    
+    <h1>{{ post.title }}</h1>
+    
+    <div class="post-meta">
+      <time datetime="{{ post.date | htmlDateString }}">
+        {{ post.date | readableDate }}
+      </time>
+      {% if post.author %}
+      <span>by {{ post.author.name }}</span>
+      {% endif %}
+    </div>
+    
+    {% if post.description %}
+    <p class="post-excerpt">{{ post.description }}</p>
+    {% endif %}
+    
+    {% if post.tags.length %}
+    <div class="post-tags">
+      {% for tag in post.tags %}
+      <a href="/tags/{{ tag | slug }}/" class="post-tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  
+  <div class="post-content">
+    {{ post.content | safe }}
+  </div>
+</article>

@@ -6,3 +6,7 @@ js/min.js.map
 .vscode/
 .netlify/
 export
+.env*
+.claude
+CLAUDE.md
+AGENTS.md

@@ -175,8 +175,54 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
+    // Just return markdown posts for now - Sanity posts are handled separately
     return collectionApi.getFilteredByTag("posts");
   });
+  
+  eleventyConfig.addCollection("allPosts", async function (collectionApi) {
+    const markdownPosts = collectionApi.getFilteredByTag("posts");
+    
+    // Get Sanity posts directly
+    let sanityPosts = [];
+    try {
+      const sanityModule = require('./_data/sanityPosts.js');
+      sanityPosts = await sanityModule();
+    } catch (error) {
+      console.warn('Could not load Sanity posts:', error.message);
+    }
+    
+    // Convert Sanity posts to match collection format
+    const sanityEleventyPosts = sanityPosts.map(post => ({
+      data: {
+        title: post.title,
+        date: post.date,
+        tags: ['posts', ...post.tags],
+        description: post.description,
+        image: post.image,
+        seo: post.seo
+      },
+      url: post.url,
+      date: post.date,
+      fileSlug: post.slug,
+      content: post.content,
+      templateContent: post.content
+    }));
+    
+    // Combine and sort by date (newest first)
+    const allPosts = [...markdownPosts, ...sanityEleventyPosts];
+    return allPosts.sort((a, b) => {
+      // Get the date from either data.date or date property
+      const dateA = a.data?.date || a.date || new Date(0);
+      const dateB = b.data?.date || b.date || new Date(0);
+      
+      // Ensure we're working with Date objects
+      const parsedDateA = dateA instanceof Date ? dateA : new Date(dateA);
+      const parsedDateB = dateB instanceof Date ? dateB : new Date(dateB);
+      
+      return parsedDateB.getTime() - parsedDateA.getTime();
+    });
+  });
+  
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy(".well-known"); // Bluesky well-known folder

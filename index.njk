@@ -1,30 +1,41 @@
 ---
-title: Hey, I'm Marcel!
 layout: layouts/home.njk
-description: I'm a developer who likes Elixir and JS/TS.
+eleventyComputed:
+  title: "{% if sanityPages.homepage %}{{ sanityPages.homepage.title }}{% else %}Hey, I'm Marcel!{% endif %}"
+  description: "{% if sanityPages.homepage %}{{ sanityPages.homepage.description }}{% else %}I'm a developer who likes Elixir and JS/TS.{% endif %}"
 date: Last Modified
 image: /img/og/opengraph-default.png
 ---
-<h1>{{ title }}</h1>
-<div class="sm:flex">
-  <div>
-    <p>
-      I'm a passionate Elixir and JS/TS developer, with a strong focus on empathy and Developer Experience. I currently work on the frontend team at <a href="https://commercetools.com" target="_blank">commercetools</a>.
-    </p>
-    <p>
-      When I'm not hanging with our two toddlers, I enjoy building products. My main focus right now are <a href="http://bold.video" target="_blank">Bold Video</a>, a modern video platform for businesses, and <a href="https://pidro.online">Pidro</a>, a classic multiplayer card game for iOS and Android.
-    </p>
-    <p>
-      I love reading, traveling and running. And I'm pretty tall (2m).
-    </p>
-    <p>
-      I'm german and live in <a href="https://www.instagram.com/spain" target="_blank">Spain 🇪🇸</a>
-    </p>
+
+{% if sanityPages.homepage %}
+  <!-- Content from Sanity CMS -->
+  <h1>{{ sanityPages.homepage.title }}</h1>
+  <div class="homepage-content">
+    {{ sanityPages.homepage.content | safe }}
   </div>
-  <div class="max-w-[18rem] ml-4 mb-8">
-    <img class="rounded-full" src="/img/profile2022-square.jpg" alt="Marcel Fahle" />
+{% else %}
+  <!-- Fallback content if Sanity not configured -->
+  <h1>Hey, I'm Marcel!</h1>
+  <div class="sm:flex">
+    <div>
+      <p>
+        I'm a passionate Elixir and JS/TS developer, with a strong focus on empathy and Developer Experience. I currently work on the frontend team at <a href="https://commercetools.com" target="_blank">commercetools</a>.
+      </p>
+      <p>
+        When I'm not hanging with our two toddlers, I enjoy building products. My main focus right now are <a href="http://bold.video" target="_blank">Bold Video</a>, a modern video platform for businesses, and <a href="https://pidro.online">Pidro</a>, a classic multiplayer card game for iOS and Android.
+      </p>
+      <p>
+        I love reading, traveling and running. And I'm pretty tall (2m).
+      </p>
+      <p>
+        I'm german and live in <a href="https://www.instagram.com/spain" target="_blank">Spain 🇪🇸</a>
+      </p>
+    </div>
+    <div class="max-w-[18rem] ml-4 mb-8">
+      <img class="rounded-full" src="/img/profile2022-square.jpg" alt="Marcel Fahle" />
+    </div>
   </div>
-</div>
+{% endif %}
 
 <div class="mt-8">
   <h2 class="text-3xl">Subscribe</h2>
@@ -40,6 +51,10 @@ image: /img/og/opengraph-default.png
 
 <div id="posts" class="mt-12 test">
   <h2 class="text-4xl">Posts</h2>
-  {% set postslist = collections.posts %}
+  {% set postslist = collections.allPosts | head(10) %}
   {% include "postslist.njk" %}
+  
+  <div class="mt-8">
+    <a href="/all/" class="text-blue-600 hover:text-blue-800 font-medium">View all posts →</a>
+  </div>
 </div>

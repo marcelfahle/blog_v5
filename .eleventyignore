@@ -6,9 +6,12 @@
 node_modules/
 package-lock.json
 README.md
+CLAUDE.md
+AGENTS.md
 \_11ty/
 third_party
 functions
 test
 src
+sanity-studio/
 .oryx_prod_node_modules/
