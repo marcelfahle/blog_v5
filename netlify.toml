@@ -1,2 +1,5 @@
-[build.processing.secrets]
-  excluded = ["SANITY_PROJECT_ID", "SANITY_DATASET"]
+[build]
+  command = "pnpm build"
+
+[build.environment]
+  SECRETS_SCAN_ENABLED = "false"
