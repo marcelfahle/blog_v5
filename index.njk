@@ -1,14 +1,10 @@
 ---
 layout: layouts/home.njk
+title: Hey, I'm Marcel!
+description: I'm a developer who likes Elixir and JS/TS.
 date: Last Modified
 image: /img/og/opengraph-default.png
 ---
-{% set pageTitle = sanityPages.homepage.title if sanityPages.homepage else "Hey, I'm Marcel!" %}
-{% set pageDescription = sanityPages.homepage.description if sanityPages.homepage else "I'm a developer who likes Elixir and JS/TS." %}
-{%- js %}
-this.title = `{{ pageTitle | safe }}`;
-this.description = `{{ pageDescription | safe }}`;
-{%- endjs %}
 
 <article class="home">
 {% if sanityPages.homepage %}
@@ -19,7 +15,7 @@ this.description = `{{ pageDescription | safe }}`;
   </div>
 {% else %}
   <!-- Fallback content if Sanity not configured -->
-  <h1>Hey, I'm Marcel!</h1>
+  <h1>{{ title }}</h1>
   <div class="sm:flex">
     <div>
       <p>
