@@ -1,8 +1,10 @@
 ---
 layout: layouts/home.njk
 eleventyComputed:
-  title: "{% if sanityPages.homepage %}{{ sanityPages.homepage.title }}{% else %}Hey, I'm Marcel!{% endif %}"
-  description: "{% if sanityPages.homepage %}{{ sanityPages.homepage.description }}{% else %}I'm a developer who likes Elixir and JS/TS.{% endif %}"
+  title: >-
+    {% if sanityPages.homepage %}{{ sanityPages.homepage.title }}{% else %}Hey, I'm Marcel!{% endif %}
+  description: >-
+    {% if sanityPages.homepage %}{{ sanityPages.homepage.description }}{% else %}I'm a developer who likes Elixir and JS/TS.{% endif %}
 date: Last Modified
 image: /img/og/opengraph-default.png
 ---
