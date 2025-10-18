@@ -1,12 +1,14 @@
 ---
-layout: layouts/base.njk
-templateClass: tmpl-home
+layout: layouts/home.njk
 date: Last Modified
 image: /img/og/opengraph-default.png
-eleventyComputed:
-  title: data => data.sanityPages?.homepage?.title || "Hey, I'm Marcel!"
-  description: data => data.sanityPages?.homepage?.description || "I'm a developer who likes Elixir and JS/TS."
 ---
+{% set pageTitle = sanityPages.homepage.title if sanityPages.homepage else "Hey, I'm Marcel!" %}
+{% set pageDescription = sanityPages.homepage.description if sanityPages.homepage else "I'm a developer who likes Elixir and JS/TS." %}
+{%- js %}
+this.title = `{{ pageTitle | safe }}`;
+this.description = `{{ pageDescription | safe }}`;
+{%- endjs %}
 
 <article class="home">
 {% if sanityPages.homepage %}
@@ -60,4 +62,3 @@ eleventyComputed:
     <a href="/all/" class="text-blue-600 hover:text-blue-800 font-medium">View all posts →</a>
   </div>
 </div>
-</article>
