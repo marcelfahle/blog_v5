@@ -4,8 +4,8 @@ templateClass: tmpl-home
 date: Last Modified
 image: /img/og/opengraph-default.png
 eleventyComputed:
-  title: "data.sanityPages?.homepage?.title || 'Hey, I\\'m Marcel!'"
-  description: "data.sanityPages?.homepage?.description || 'I\\'m a developer who likes Elixir and JS/TS.'"
+  title: data => data.sanityPages?.homepage?.title || "Hey, I'm Marcel!"
+  description: data => data.sanityPages?.homepage?.description || "I'm a developer who likes Elixir and JS/TS."
 ---
 
 <article class="home">
