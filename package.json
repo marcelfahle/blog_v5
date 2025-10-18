@@ -16,9 +16,7 @@
     "css-watch": "tailwindcss -i css/tailwind.css -o _site/css/tailwind.css --watch --postcss",
     "css": "tailwindcss -i css/tailwind.css -o _site/css/tailwind.css --postcss",
     "clean": "rm -Rf ./_site/posts/*",
-    "studio": "cd sanity-studio && pnpm dev",
-    "studio:build": "cd sanity-studio && pnpm build",
-    "studio:deploy": "cd sanity-studio && pnpm deploy",
+
     "dev:refresh": "pnpm build && pnpm serve"
   },
   "pre-push": [
