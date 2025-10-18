@@ -1,11 +1,14 @@
 ---
-layout: layouts/home.njk
-title: Hey, I'm Marcel!
-description: I'm a developer who likes Elixir and JS/TS.
+layout: layouts/base.njk
+templateClass: tmpl-home
 date: Last Modified
 image: /img/og/opengraph-default.png
+eleventyComputed:
+  title: "data.sanityPages?.homepage?.title || 'Hey, I\\'m Marcel!'"
+  description: "data.sanityPages?.homepage?.description || 'I\\'m a developer who likes Elixir and JS/TS.'"
 ---
 
+<article class="home">
 {% if sanityPages.homepage %}
   <!-- Content from Sanity CMS -->
   <h1>{{ sanityPages.homepage.title }}</h1>
@@ -57,3 +60,4 @@ image: /img/og/opengraph-default.png
     <a href="/all/" class="text-blue-600 hover:text-blue-800 font-medium">View all posts →</a>
   </div>
 </div>
+</article>
