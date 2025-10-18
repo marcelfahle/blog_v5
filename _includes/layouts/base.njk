@@ -14,8 +14,8 @@
   <meta property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
   <meta name="theme-color" content="#f9c412">
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta property="og:title" content="{{ renderData.title or title or metadata.title | escape  }}">
+  <title>{{ renderData.title or title or metadata.title | safe }}</title>
+  <meta property="og:title" content="{{ renderData.title or title or metadata.title | safe }}">
   <meta property="og:type" content="article">
   {% set desc = renderData.description or description %}
   {% if not desc %}
