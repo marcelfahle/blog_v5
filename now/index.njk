@@ -2,7 +2,8 @@
 layout: layouts/base.njk
 eleventyComputed:
   title: "{% if sanityPages.now %}{{ sanityPages.now.title }}{% else %}What I'm up to Now{% endif %}"
-  description: "{% if sanityPages.now %}{{ sanityPages.now.description }}{% else %}Current projects and interests{% endif %}"
+  description: "{% if sanityPages.now %}{{ sanityPages.now.seo.description }}{% else %}Current projects and interests{% endif %}"
+  image: false
 templateClass: tmpl-post
 eleventyNavigation:
   key: Now

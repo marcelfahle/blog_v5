@@ -8,7 +8,7 @@ layout: layouts/base.njk
 eleventyComputed:
   title: "{{ post.seo.title }}"
   description: "{{ post.seo.description }}"
-  image: "{{ post.seo.ogImage }}"
+  image: "{{ post.seo.ogImage if post.seo.ogImage and not post.seo.ogImage.includes('marcelfahle.net') else false }}"
 ---
 
 <style>
