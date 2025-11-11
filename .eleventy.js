@@ -227,6 +227,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy(".well-known"); // Bluesky well-known folder
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addWatchTarget("img/og/generated/**/*.png");
   // We need to copy cached.js only if GA is used
   eleventyConfig.addPassthroughCopy(GA_ID ? "js" : "js/*[!cached].*");
   eleventyConfig.addPassthroughCopy("fonts");
