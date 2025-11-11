@@ -1,5 +1,7 @@
+const path = require('path');
 const { createClient } = require('@sanity/client');
 const { toHTML } = require('@portabletext/to-html');
+const { generateOgImage } = require('../lib/og/generateOgImage');
 
 require('dotenv').config();
 
@@ -19,6 +21,38 @@ const client = createClient({
   apiVersion: '2025-01-13'
 });
 
+// Helper to parse optional directives from caption, e.g. "Caption text [size:small,float:left]"
+function parseImageDirectives(caption) {
+  if (!caption) return { caption: '', size: undefined, float: undefined };
+  const match = caption.match(/\[([^\]]+)\]\s*$/);
+  if (!match) return { caption, size: undefined, float: undefined };
+  
+  const directives = {};
+  match[1].split(',').forEach(part => {
+    const [key, val] = part.split(':').map(s => s.trim());
+    if (['size', 'float'].includes(key) && val) {
+      directives[key] = val;
+    }
+  });
+  
+  const cleanCaption = caption.replace(/\s*\[[^\]]+\]\s*$/, '').trim();
+  return { caption: cleanCaption, size: directives.size, float: directives.float };
+}
+
+// Mapping for size and float classes
+const sizeClassMap = {
+  small: 'max-w-xs',
+  medium: 'max-w-md', 
+  large: 'max-w-2xl',
+  full: 'w-full'
+};
+
+const floatClassMap = {
+  none: '',
+  left: 'float-left mr-4 mb-4',
+  right: 'float-right ml-4 mb-4'
+};
+
 // Portable Text to HTML configuration
 const portableTextComponents = {
   types: {
@@ -29,8 +63,24 @@ const portableTextComponents = {
       const [, id, dimensions, format] = value.asset._ref.split('-');
       const [width, height] = dimensions.split('x').map(Number);
       const imageUrl = `https://cdn.sanity.io/images/${process.env.SANITY_PROJECT_ID}/${process.env.SANITY_DATASET}/${id}-${dimensions}.${format}`;
+      
       const alt = value.alt || '';
-      return `<img src="${imageUrl}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />`;
+      const { caption: cleanCaption, size: parsedSize, float: parsedFloat } = parseImageDirectives(value.caption);
+      
+      // Prefer explicit fields from Sanity, fall back to parsed directives
+      const size = value.size || parsedSize || 'medium';
+      const float = value.float || parsedFloat || 'none';
+      
+      const sizeCls = sizeClassMap[size] || sizeClassMap.medium;
+      const floatCls = floatClassMap[float] || '';
+      const figureCls = ['my-6', floatCls].filter(Boolean).join(' ');
+      
+      return `
+        <figure class="${figureCls}">
+          <img class="${sizeCls}" src="${imageUrl}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
+          ${cleanCaption ? `<figcaption class="text-sm text-gray-600 mt-2">${cleanCaption}</figcaption>` : ''}
+        </figure>
+      `;
     },
     gallery: ({value}) => {
       if (!value?.images?.length) return '';
@@ -76,7 +126,7 @@ module.exports = async function() {
     `);
 
     // Transform posts for Eleventy
-    return posts.map(post => {
+    const transformed = await Promise.all(posts.map(async post => {
       // Convert portable text to HTML
       const bodyHtml = post.body ? toHTML(post.body, {components: portableTextComponents}) : '';
       
@@ -92,8 +142,23 @@ module.exports = async function() {
       if (post.seo?.openGraphImage?.asset?._ref) {
         const [, id, dimensions, format] = post.seo.openGraphImage.asset._ref.split('-');
         ogImageUrl = `https://cdn.sanity.io/images/${process.env.SANITY_PROJECT_ID}/${process.env.SANITY_DATASET}/${id}-${dimensions}.${format}`;
+      } else {
+        const generatedImage = await generateOgImage({
+          slug: post.slug?.current,
+          title: post.title,
+          description: post.excerpt,
+        });
+
+        if (generatedImage) {
+          const relative = path.relative(process.cwd(), generatedImage).split(path.sep).join('/');
+          ogImageUrl = `/${relative}`;
+        }
       }
-      
+
+      if (!ogImageUrl) {
+        ogImageUrl = '/img/og/opengraph-default.png';
+      }
+
       return {
         id: post._id,
         title: post.title,
@@ -111,7 +176,9 @@ module.exports = async function() {
           ogImage: ogImageUrl
         }
       };
-    });
+    }));
+
+    return transformed;
   } catch (error) {
     console.error('Error fetching Sanity posts:', error);
     return [];

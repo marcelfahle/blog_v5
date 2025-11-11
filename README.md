@@ -63,6 +63,12 @@ npm run build
 }
 ```
 
+### Open Graph images
+
+- Sanity posts automatically generate branded 1200×630 share images during `pnpm build` when no custom `seo.openGraphImage` is stored in Sanity.
+- Generated assets live under `img/og/generated/` (ignored by git) and reuse the post title plus excerpt.
+- To override a specific card, upload an Open Graph asset in Sanity’s SEO panel; it takes priority over the generated fallback.
+
 ## Features
 
 ### Performance outcomes
