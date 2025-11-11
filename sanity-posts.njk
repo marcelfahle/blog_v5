@@ -7,29 +7,9 @@ permalink: "/posts/{{ post.slug }}/"
 layout: layouts/base.njk
 eleventyComputed:
   title: "{{ post.seo.title }}"
-  description: "{{ post.seo.description }}"
+  description: "{{ post.description or post.seo.description }}"
   image: "{{ post.seo.ogImage if post.seo.ogImage and not post.seo.ogImage.includes('marcelfahle.net') else false }}"
 ---
-
-<style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  .gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
-  .gallery-item figcaption {
-    padding: 0.5rem 0;
-    font-size: 0.875rem;
-    color: #64748b;
-  }
-</style>
 
 <article class="tmpl-post">
   <header>
