@@ -48,7 +48,7 @@ const sizeStyleMap = {
 };
 
 const floatStyleMap = {
-  none: '',
+  none: 'margin-left: auto; margin-right: auto;',
   left: 'float: left; margin-right: 1rem; margin-bottom: 1rem;',
   right: 'float: right; margin-left: 1rem; margin-bottom: 1rem;'
 };
