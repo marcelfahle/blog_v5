@@ -48,9 +48,9 @@ const sizeStyleMap = {
 };
 
 const floatStyleMap = {
-  none: 'margin-left: auto; margin-right: auto',
-  left: 'float: left; margin-right: 1rem; margin-bottom: 1rem',
-  right: 'float: right; margin-left: 1rem; margin-bottom: 1rem'
+  none: '',
+  left: 'float: left; margin-right: 1rem',
+  right: 'float: right; margin-left: 1rem'
 };
 
 // Portable Text to HTML configuration
@@ -73,7 +73,7 @@ const portableTextComponents = {
       
       const sizeStyle = sizeStyleMap[size] || sizeStyleMap.medium;
       const floatStyle = floatStyleMap[float] || '';
-      const figureStyle = [sizeStyle, floatStyle, 'margin-top: 1.5rem', 'margin-bottom: 1.5rem'].filter(Boolean).join('; ');
+      const figureStyle = [sizeStyle, 'margin: 1.5rem auto', floatStyle].filter(Boolean).join('; ');
       
       return `
         <figure style="${figureStyle}">
