@@ -73,11 +73,11 @@ const portableTextComponents = {
       
       const sizeCls = sizeClassMap[size] || sizeClassMap.medium;
       const floatCls = floatClassMap[float] || '';
-      const figureCls = ['my-6', floatCls].filter(Boolean).join(' ');
+      const figureCls = ['my-6', sizeCls, floatCls].filter(Boolean).join(' ');
       
       return `
         <figure class="${figureCls}">
-          <img class="${sizeCls}" src="${imageUrl}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
+          <img src="${imageUrl}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
           ${cleanCaption ? `<figcaption class="text-sm text-gray-600 mt-2">${cleanCaption}</figcaption>` : ''}
         </figure>
       `;
