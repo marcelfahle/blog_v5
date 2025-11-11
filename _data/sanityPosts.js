@@ -39,18 +39,18 @@ function parseImageDirectives(caption) {
   return { caption: cleanCaption, size: directives.size, float: directives.float };
 }
 
-// Mapping for size and float classes
-const sizeClassMap = {
-  small: 'max-w-xs',
-  medium: 'max-w-md', 
-  large: 'max-w-2xl',
-  full: 'w-full'
+// Mapping for size and float styles
+const sizeStyleMap = {
+  small: 'max-width: 320px',
+  medium: 'max-width: 448px', 
+  large: 'max-width: 672px',
+  full: 'width: 100%'
 };
 
-const floatClassMap = {
+const floatStyleMap = {
   none: '',
-  left: 'float-left mr-4 mb-4',
-  right: 'float-right ml-4 mb-4'
+  left: 'float: left; margin-right: 1rem; margin-bottom: 1rem;',
+  right: 'float: right; margin-left: 1rem; margin-bottom: 1rem;'
 };
 
 // Portable Text to HTML configuration
@@ -71,14 +71,14 @@ const portableTextComponents = {
       const size = value.size || parsedSize || 'medium';
       const float = value.float || parsedFloat || 'none';
       
-      const sizeCls = sizeClassMap[size] || sizeClassMap.medium;
-      const floatCls = floatClassMap[float] || '';
-      const figureCls = ['my-6', sizeCls, floatCls].filter(Boolean).join(' ');
+      const sizeStyle = sizeStyleMap[size] || sizeStyleMap.medium;
+      const floatStyle = floatStyleMap[float] || '';
+      const figureStyle = [sizeStyle, floatStyle, 'margin: 1.5rem 0'].filter(Boolean).join('; ');
       
       return `
-        <figure class="${figureCls}">
+        <figure style="${figureStyle}">
           <img src="${imageUrl}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />
-          ${cleanCaption ? `<figcaption class="text-sm text-gray-600 mt-2">${cleanCaption}</figcaption>` : ''}
+          ${cleanCaption ? `<figcaption style="font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem;">${cleanCaption}</figcaption>` : ''}
         </figure>
       `;
     },
