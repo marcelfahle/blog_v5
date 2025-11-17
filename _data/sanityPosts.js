@@ -98,7 +98,7 @@ const portableTextComponents = {
         `;
       }).join('');
       
-      return `<div class="gallery grid grid-cols-2 md:grid-cols-3 gap-4 my-8">${galleryImages}</div>`;
+      return `<div class="gallery grid grid-cols-2 md:grid-cols-3 gap-2 my-8">${galleryImages}</div>`;
     }
   },
   marks: {
