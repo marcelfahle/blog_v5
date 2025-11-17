@@ -56,8 +56,10 @@
   <script async defer src="{{ "/js/min.js" | addHash }}" {% if webvitals %}data-cwv-src="{{ "/js/web-vitals.js" | addHash }}"{% endif %}></script>
   <link rel="stylesheet" href="{{ '/css/tailwind.css' | absoluteUrl(metadata.url) }}">
   <link rel="stylesheet" href="{{ '/css/main.css' | absoluteUrl(metadata.url) }}">
+  <link rel="stylesheet" href="{{ '/css/gallery-lightbox.css' | absoluteUrl(metadata.url) }}">
 
   <script defer data-domain="marcelfahle.net" src="https://plausible.io/js/script.js"></script>
+  <script defer src="{{ '/js/gallery-lightbox.js' | absoluteUrl(metadata.url) }}"></script>
 
 
 </head>
