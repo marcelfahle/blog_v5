@@ -21,13 +21,13 @@ class GalleryLightbox {
         </svg>
       </button>
       <button class="lightbox__prev" aria-label="Previous image">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18l-6-6 6-6" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <polyline points="15,18 9,12 15,6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <button class="lightbox__next" aria-label="Next image">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18l6-6-6-6" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+          <polyline points="9,18 15,12 9,6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <div class="lightbox__content">
