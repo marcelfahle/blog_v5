@@ -50,7 +50,7 @@ html {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 0.25rem;
   margin: 2rem 0;
 }
 .gallery-item img {
