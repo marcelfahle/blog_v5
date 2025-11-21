@@ -76,7 +76,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
-  color: #ff00ff; /* Magenta icons */
+  color: var(--primary); /* Mint icons */
   box-shadow: none;
   opacity: 0.9;
 
