@@ -54,23 +54,38 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Lightbox button overrides */
+/* Lightbox button overrides – deliberately ignore global button styles */
 .lightbox .lightbox__close,
 .lightbox .lightbox__prev,
 .lightbox .lightbox__next {
+  /* Layout + box model */
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  
-  /* Reset and Base Styles */
-  background: rgba(0, 0, 0, 0.5);
+
+  /* Kill global button styles */
+  padding: 0;
+  margin: 0;
+  border: none;
+  line-height: 0; /* Prevent text line-height from affecting height */
+  background: transparent;
+
+  /* Base visual styles */
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
   color: #ff00ff; /* Magenta icons */
   box-shadow: none;
   opacity: 0.9;
-  border-radius: 0.5rem;
+
+  /* Smooth hover transitions */
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 /* Close button specific adjustments */
@@ -78,21 +93,26 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
+
+  /* Force square size, unaffected by padding */
   width: 32px;
   height: 32px;
+
   background: transparent;
-  border: none;
   border-radius: 50%;
 }
 
-/* Navigation buttons positioning */
+/* Navigation buttons positioning & sizing */
 .lightbox .lightbox__prev,
 .lightbox .lightbox__next {
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
+
+  /* Force square size here as well */
   width: 3rem;
   height: 3rem;
-  transform: translateY(-50%);
+
   backdrop-filter: blur(10px);
 }
 
@@ -111,24 +131,31 @@
   background-color: var(--primary);
   border-color: var(--primary);
   opacity: 1;
-  color: #000; /* Switch to black icon on mint background for better contrast */
+  color: #000; /* Black icon on mint background for contrast */
 }
 
 /* SVG Styling to ensure visibility and color inheritance */
 .lightbox .lightbox__close svg,
 .lightbox .lightbox__prev svg,
 .lightbox .lightbox__next svg {
+  display: block;
+
+  /* Fill the button, but never collapse to 0 */
   width: 100%;
   height: 100%;
-  display: block;
+  min-width: 16px;
+  min-height: 16px;
+
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
 }
 
+/* Extra padding for larger nav icons */
 .lightbox .lightbox__prev svg,
 .lightbox .lightbox__next svg {
-  padding: 4px; /* Add some padding for the larger nav icons */
+  padding: 4px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
