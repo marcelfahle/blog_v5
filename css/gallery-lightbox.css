@@ -54,74 +54,81 @@
   font-variant-numeric: tabular-nums;
 }
 
-.lightbox .lightbox__close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  padding: 0;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  opacity: 0.8;
-}
-
-.lightbox .lightbox__close:hover {
-  opacity: 1;
-}
-
-.lightbox .lightbox__close svg {
-  width: 32px;
-  height: 32px;
-}
-
+/* Lightbox button overrides */
+.lightbox .lightbox__close,
 .lightbox .lightbox__prev,
 .lightbox .lightbox__next {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-  opacity: 0.8;
+  
+  /* Reset and Base Styles */
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ff00ff; /* Magenta icons */
+  box-shadow: none;
+  opacity: 0.9;
   border-radius: 0.5rem;
 }
 
-.lightbox .lightbox__prev:hover,
-.lightbox .lightbox__next:hover {
-  background: rgba(0, 0, 0, 0.7);
-  border-color: rgba(255, 255, 255, 0.4);
-  opacity: 1;
+/* Close button specific adjustments */
+.lightbox .lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
 }
 
-.lightbox .lightbox__prev svg,
-.lightbox .lightbox__next svg {
-  width: 40px;
-  height: 40px;
-  display: block;
+/* Navigation buttons positioning */
+.lightbox .lightbox__prev,
+.lightbox .lightbox__next {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translateY(-50%);
+  backdrop-filter: blur(10px);
 }
 
 .lightbox .lightbox__prev {
   left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .lightbox .lightbox__next {
   right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+}
+
+/* Hover States - Mint Background */
+.lightbox .lightbox__close:hover,
+.lightbox .lightbox__prev:hover,
+.lightbox .lightbox__next:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  opacity: 1;
+  color: #000; /* Switch to black icon on mint background for better contrast */
+}
+
+/* SVG Styling to ensure visibility and color inheritance */
+.lightbox .lightbox__close svg,
+.lightbox .lightbox__prev svg,
+.lightbox .lightbox__next svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.lightbox .lightbox__prev svg,
+.lightbox .lightbox__next svg {
+  padding: 4px; /* Add some padding for the larger nav icons */
 }
 
 @media (max-width: 768px) {
