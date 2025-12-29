@@ -54,7 +54,7 @@ exports.handler = async (event) => {
         Authorization: `Token ${apiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email_address: email }),
     });
 
     if (response.status === 201) {
