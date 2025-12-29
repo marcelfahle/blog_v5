@@ -280,3 +280,56 @@ const menuToggle = document.getElementsByClassName("mobile-nav-toggle")[0];
 menuToggle.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
+
+// Subscribe form handling
+const subscribeForm = document.getElementById("subscribe-form");
+if (subscribeForm) {
+  subscribeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const emailInput = form.querySelector('input[name="email"]');
+    const button = form.querySelector("button[type='submit']");
+    const buttonText = button.querySelector(".button-text");
+    const buttonLoading = button.querySelector(".button-loading");
+    const errorEl = form.querySelector(".subscribe-error");
+    const successEl = document.getElementById("subscribe-success");
+
+    const email = emailInput.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorEl.textContent = "Please enter a valid email address";
+      errorEl.classList.remove("hidden");
+      return;
+    }
+
+    errorEl.classList.add("hidden");
+    buttonText.classList.add("hidden");
+    buttonLoading.classList.remove("hidden");
+    button.disabled = true;
+
+    try {
+      const response = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        form.classList.add("hidden");
+        successEl.classList.remove("hidden");
+      } else {
+        errorEl.textContent = data.error || "Something went wrong. Please try again.";
+        errorEl.classList.remove("hidden");
+      }
+    } catch {
+      errorEl.textContent = "Network error. Please try again.";
+      errorEl.classList.remove("hidden");
+    } finally {
+      buttonText.classList.remove("hidden");
+      buttonLoading.classList.add("hidden");
+      button.disabled = false;
+    }
+  });
+}
