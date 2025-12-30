@@ -4,55 +4,64 @@ date: Last Modified
 image: /img/og/opengraph-default.png
 ---
 
-<article class="home">
-{% if sanityPages.homepage %}
-  <!-- Content from Sanity CMS -->
-  <h1>{{ sanityPages.homepage.title }}</h1>
-  <div class="homepage-content">
-    {{ sanityPages.homepage.content | safe }}
-  </div>
-{% else %}
-  <!-- Fallback content if Sanity not configured -->
-  <h1>{{ title }}</h1>
-  <div class="sm:flex">
-    <div>
-      <p>
-        I'm a passionate Elixir and JS/TS developer, with a strong focus on empathy and Developer Experience. I currently work on the frontend team at <a href="https://commercetools.com" target="_blank">commercetools</a>.
-      </p>
-      <p>
-        When I'm not hanging with our two toddlers, I enjoy building products. My main focus right now are <a href="http://bold.video" target="_blank">Bold Video</a>, a modern video platform for businesses, and <a href="https://pidro.online">Pidro</a>, a classic multiplayer card game for iOS and Android.
-      </p>
-      <p>
-        I love reading, traveling and running. And I'm pretty tall (2m).
-      </p>
-      <p>
-        I'm german and live in <a href="https://www.instagram.com/spain" target="_blank">Spain 🇪🇸</a>
-      </p>
-    </div>
-    <div class="max-w-[18rem] ml-4 mb-8">
-      <img class="rounded-full" src="/img/profile2022-square.jpg" alt="Marcel Fahle" />
-    </div>
-  </div>
-{% endif %}
+<h1>Hey, I'm Marcel</h1>
 
-<div class="mt-8">
-  <h2 class="text-3xl">Subscribe</h2>
-  <ul id="main-nav-inline">
-    <li><a href="https://marcelfahle.net/feed/feed.xml">RSS</a></li>
-    <li><a href="https://twitter.com/marcelfahle" target="_blank">Twitter</a></li>
-    <li><a href="https://bsky.app/profile/marcelfahle.net" target="_blank">Bluesky</a></li>
-    <li><a href="https://github.com/marcelfahle/" target="_blank">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/marcelfahle/" target="_blank">LinkedIn</a></li>
+<p class="text-muted">A software engineer and founder based in Spain.</p>
 
+<p class="text-muted">I'm building <a href="https://bold.video" target="_blank">Bold Video</a>—video intelligence for coaching programs. We help coaches turn their video libraries into AI-powered implementation support so students actually succeed (and stick around). I also make <a href="https://pidro.online" target="_blank">Pidro</a>, a multiplayer card game for iOS and Android.</p>
+
+<p class="text-muted">My stack is Elixir and TypeScript, though these days most of my coding happens through AI.</p>
+
+<p class="text-muted">Outside of work, I'm usually with my two kids, out running, or reading. Originally from Germany, now happily settled in southern Spain.</p>
+
+<p class="font-semibold">Nice to have you here.</p>
+
+<div class="mt-8 mb-2">
+  <p class="text-sm text-muted mb-3">Occasional updates on what I'm building and learning.</p>
+  <form id="subscribe-form" class="subscribe-form" novalidate>
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="you@example.com" 
+      required
+      class="subscribe-input"
+      aria-label="Email address"
+    >
+    <button type="submit" class="subscribe-button" aria-label="Subscribe">
+      <span class="button-text">→</span>
+      <span class="button-loading hidden">
+        <svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </span>
+    </button>
+  </form>
+  <p class="subscribe-error hidden" role="alert"></p>
+  <div id="subscribe-success" class="subscribe-success hidden">
+    You're in! Check your email to confirm.
+  </div>
+</div>
+
+<div class="mt-12">
+  <h2 class="text-2xl mb-4">Posts</h2>
+  <ul class="list-none p-0 m-0 space-y-2">
+  {% for post in collections.allPosts | head(10) %}
+    <li>
+      <time class="text-subtle text-sm inline-block w-20" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableMonth }}</time>
+      <a href="{{ post.url | url }}" class="text-primary">{% if post.data.title %}{{ post.data.title }}{% else %}{{ post.url }}{% endif %}</a>
+    </li>
+  {% endfor %}
   </ul>
-</div>
-
-<div id="posts" class="mt-12 test">
-  <h2 class="text-4xl">Posts</h2>
-  {% set postslist = collections.allPosts | head(10) %}
-  {% include "postslist.njk" %}
   
-  <div class="mt-8">
-    <a href="/all/" class="text-blue-600 hover:text-blue-800 font-medium">View all posts →</a>
+  <div class="mt-6">
+    <a href="/all/" class="text-muted hover:text-white">View all posts →</a>
   </div>
 </div>
+
+<ul class="flex gap-5 list-none p-0 m-0 mt-10">
+  <li><a href="/feed/feed.xml" class="text-muted hover:text-white text-sm">RSS</a></li>
+  <li><a href="https://twitter.com/marcelfahle" target="_blank" class="text-muted hover:text-white text-sm">Twitter</a></li>
+  <li><a href="https://github.com/marcelfahle/" target="_blank" class="text-muted hover:text-white text-sm">GitHub</a></li>
+  <li><a href="https://www.linkedin.com/in/marcelfahle/" target="_blank" class="text-muted hover:text-white text-sm">LinkedIn</a></li>
+</ul>

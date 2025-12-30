@@ -4,6 +4,10 @@
   "url": "https://marcelfahle.net",
   "domain": "marcelfahle.net",
   "description": "Personal Website of Marcel Fahle, Elixir and JS/TS Developer. Runner. Traveler. Bookworm.",
+  "theme": {
+    "primaryColor": "#32fab9",
+    "primaryColorDark": "#41ead4"
+  },
   "genre": "Insert a schema.org genre",
   "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
   "sendWebVitals": false,

@@ -41,6 +41,7 @@ class GalleryLightbox {
   }
 
   attachEventListeners() {
+    // Gallery images (grouped lightbox)
     document.querySelectorAll('.gallery').forEach(gallery => {
       const galleryImages = Array.from(gallery.querySelectorAll('.gallery-item'));
       
@@ -59,6 +60,22 @@ class GalleryLightbox {
             this.open(index);
           });
         }
+      });
+    });
+
+    // Regular article images (single image lightbox)
+    document.querySelectorAll('article img').forEach(img => {
+      // Skip if already in a gallery
+      if (img.closest('.gallery')) return;
+      
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        this.images = [{
+          src: img.src.replace(/\?.*$/, ''),
+          alt: img.alt,
+          caption: img.alt || ''
+        }];
+        this.open(0);
       });
     });
 

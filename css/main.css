@@ -1,18 +1,4 @@
-/* --------------------------------------------------------------------------
-Single variable font.
-
-Note that you may want to do something like this to make sure you're serving
-constant fonts to older browsers:
-html {
-  font-family: 'Inter UI', sans-serif;
-}
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: 'Inter UI var', sans-serif;
-  }
-}
-*/
-/*! purgecss start ignore */
+/* Fonts */
 @font-face {
   font-family: "Inter UI";
   font-weight: 100 900;
@@ -20,1368 +6,227 @@ html {
   src: url("/fonts/Inter-3.19.var.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Newsreader";
-  font-weight: 100 900;
-  font-style: oblique 0deg 10deg;
-  src: url("/fonts/Newsreader[opsz,wght].woff2") format("woff2");
-}
-@font-face {
   font-family: "Cabinet Grotesk";
   font-weight: 400 800;
   font-style: oblique 0deg 10deg;
   src: url("/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
 }
-/* Colors and fonts */
+
+/* CSS Variables */
 :root {
   --primary: #32fab9;
   --primary-dark: #41ead4;
-  --text-primary: #f4f4f4;
-  --text-subtle: #afafaf;
+  --text-primary: #e8e8e8;
+  --text-body: #a8a8a8;
+  --text-muted: #888888;
+  --text-subtle: #555555;
+  --bg: #141414;
+  --bg-elevated: #1a1a1a;
   --font-family-headings: Cabinet Grotesk, sans-serif;
-  /* --font-family: Inter UI, sans-serif; */
-  --font-family: Inter, sans-serif;
+  --font-family: Inter, Inter UI, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.test-dead-code-elimination-sentinel {
-  color: red;
-}
-
-/* Gallery styles for Sanity posts */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 0.25rem;
-  margin: 2rem 0;
-}
-.gallery-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-.gallery-item figcaption {
-  padding: 0.5rem 0;
-  font-size: 0.875rem;
-  color: #64748b;
-}
-/*! purgecss end ignore */
-
-/*
-  Make image rasterization lazy. This means that e.g. the cost of the
-  blurry placeholder is never paid if images load before entering
-  the viewport.
-  Context
-  - https://web.dev/content-visibility/#skipping-rendering-work-with-content-visibility
- */
-main img {
-  content-visibility: auto;
-}
-
-/* Avoid the header hiding the content on anchor scroll. */
-article * {
-  scroll-margin-top: 50px;
-}
-
-/* "Content-visibility: auto" move the images over the other elements
-   Set z-index to keep the nav over the rasterized images */
-header nav {
-  z-index: 1;
-}
-
-#main-nav-inline {
-  display: flex;
-  gap: 20px;
-}
-
-.newsletter-form2 {
-  padding: 0;
-  border: none;
-}
-
-.newsletter-form2 button {
-  margin: 0;
-}
-.newsletter-form-header {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-/*! purgecss start ignore */
-/* :root { */
-/*   --main-width: calc(100vw - 1rem); */
-/* } */
-
-/* @media (min-width: 37.5em) { */
-/*   :root { */
-/*     --main-width: calc(37.5em - 3em); */
-/*   } */
-/* } */
-/*! purgecss end ignore */
-
-share-widget {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  opacity: 0.9;
-}
-
-share-widget div {
-  width: 30px;
-  height: 30px;
-  background-image: url("/img/share.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.apple share-widget div {
-  background-image: url("/img/share-apple.svg");
-}
-
-share-widget button {
-  margin: 0;
-}
-
-share-widget button:active {
-  transform: scale(1.2);
-}
-
-dialog {
-  background-color: #8dff80;
-  position: fixed;
-  opacity: 0.9;
-  z-index: 1000;
-}
-
-img[align="left"] {
-  width: auto;
-  height: 16rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}
-
-dl {
-  clear: both;
-  display: block !important;
-}
-
-header aside {
-  font-style: italic;
-}
-
-#nav {
-  z-index: 2;
-  position: relative;
-}
-
-#reading-progress {
-  z-index: 1;
-  background-color: var(--primary);
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transform: translate(-100vw, 0);
-  will-change: transform;
-  pointer-events: none;
-}
-
-#posts li {
-  margin-bottom: 0.5em;
-}
-
-/* General styles for the image wrapper */
-.img-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
-  justify-content: space-between;
-}
-
-.img-wrapper figure {
-  flex: 1 0 30%; /* Grow to fill the space, but don't shrink below 30% */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-between; /* Aligns the caption to the bottom */
-  margin: 0;
-}
-
-.img-wrapper img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  margin-bottom: auto;
-  max-height: 500px;
-}
-
-.img-wrapper figcaption {
-  text-align: center;
-  font-size: 16px;
-  padding: 0 4px;
-}
-
-/* Responsive layout for mobile */
-@media (max-width: 420px) {
-  .img-wrapper figure {
-    flex-basis: 100%; /* On mobile, each figure takes full width */
-  }
-}
-
-h3 {
-  border-bottom: 1px solid var(--primary);
-}
-
-.stats {
-  list-style: "➭  ";
-  font-size: 1.4rem;
-}
-.stats li {
-  margin-bottom: 1.5em;
-}
-.stats li strong {
-  /* color: var(--primary); */
-}
-.stats li .img-wrapper {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-/* https://github.com/rsms/inter/blob/master/LICENSE.txt
-
-Copyright (c) 2016-2020 The Inter Project Authors.
-"Inter" is trademark of Rasmus Andersson.
-https://github.com/rsms/inter
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
-
------------------------------------------------------------
-SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
------------------------------------------------------------
-
-PREAMBLE
-The goals of the Open Font License (OFL) are to stimulate worldwide
-development of collaborative font projects, to support the font creation
-efforts of academic and linguistic communities, and to provide a free and
-open framework in which fonts may be shared and improved in partnership
-with others.
-
-The OFL allows the licensed fonts to be used, studied, modified and
-redistributed freely as long as they are not sold by themselves. The
-fonts, including any derivative works, can be bundled, embedded,
-redistributed and/or sold with any software provided that any reserved
-names are not used by derivative works. The fonts and derivatives,
-however, cannot be released under any other type of license. The
-requirement for fonts to remain under this license does not apply
-to any document created using the fonts or their derivatives.
-
-DEFINITIONS
-"Font Software" refers to the set of files released by the Copyright
-Holder(s) under this license and clearly marked as such. This may
-include source files, build scripts and documentation.
-
-"Reserved Font Name" refers to any names specified as such after the
-copyright statement(s).
-
-"Original Version" refers to the collection of Font Software components as
-distributed by the Copyright Holder(s).
-
-"Modified Version" refers to any derivative made by adding to, deleting,
-or substituting -- in part or in whole -- any of the components of the
-Original Version, by changing formats or by porting the Font Software to a
-new environment.
-
-"Author" refers to any designer, engineer, programmer, technical
-writer or other person who contributed to the Font Software.
-
-PERMISSION AND CONDITIONS
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of the Font Software, to use, study, copy, merge, embed, modify,
-redistribute, and sell modified and unmodified copies of the Font
-Software, subject to the following conditions:
-
-1) Neither the Font Software nor any of its individual components,
-in Original or Modified Versions, may be sold by itself.
-
-2) Original or Modified Versions of the Font Software may be bundled,
-redistributed and/or sold with any software, provided that each copy
-contains the above copyright notice and this license. These can be
-included either as stand-alone text files, human-readable headers or
-in the appropriate machine-readable metadata fields within text or
-binary files as long as those fields can be easily viewed by the user.
-
-3) No Modified Version of the Font Software may use the Reserved Font
-Name(s) unless explicit written permission is granted by the corresponding
-Copyright Holder. This restriction only applies to the primary font name as
-presented to the users.
-
-4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
-Software shall not be used to promote, endorse or advertise any
-Modified Version, except to acknowledge the contribution(s) of the
-Copyright Holder(s) and the Author(s) or with their explicit written
-permission.
-
-5) The Font Software, modified or unmodified, in part or in whole,
-must be distributed entirely under this license, and must not be
-distributed under any other license. The requirement for fonts to
-remain under this license does not apply to any document created
-using the Font Software.
-
-TERMINATION
-This license becomes null and void if any of the above conditions are
-not met.
-
-DISCLAIMER
-THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
-OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
-COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
-DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
-OTHER DEALINGS IN THE FONT SOFTWARE.
-
-*/
-
-/*
-
-The Bahunya CSS framework https://kimeiga.github.io/bahunya/
-
-https://github.com/Kimeiga/bahunya/blob/master/LICENSE
-
-MIT License
-
-Copyright (c) 2018 Hakan Alpay
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-*/
-
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-a {
-  background-color: transparent;
-}
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted;
-}
-b,
-strong {
-  font-weight: 700;
-}
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-img {
-  border-style: none;
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-button,
-input {
-  overflow: visible;
-}
-button,
-select {
-  text-transform: none;
-}
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-  -webkit-appearance: button;
-}
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-progress {
-  vertical-align: baseline;
-}
-textarea {
-  overflow: auto;
-}
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-details {
-  display: block;
-}
-summary {
-  display: list-item;
-}
-[hidden],
-template {
-  display: none;
-}
-
-/* typography starts here */
-
-h1 {
-  font-size: 3em;
-  line-height: 1.25;
-  margin-bottom: 0.5em;
-}
-h2 {
-  font-size: 2em;
-  line-height: 1.2;
-  margin-bottom: 0.6em;
-}
-h3 {
-  font-size: 2em;
-  line-height: 1.125;
-  margin-bottom: 0.75em;
-}
-h4 {
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-h4,
-h5 {
-  line-height: 1.5em;
-}
-h5 {
-  font-size: 1.25em;
-  margin-bottom: 1.2em;
-}
-h6 {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1.5em;
-}
-body,
-ol,
-p,
-pre,
-ul {
-  font-size: 18px;
-  line-height: 1.5;
-}
-ol,
-p,
-pre,
-ul {
-  margin-bottom: 1.5em;
-}
-h1 {
-  font-size: 2.5rem;
-  margin: 1em 0 1.5em;
-}
-h1,
-h2 {
-  line-height: 2.4rem;
-  margin-bottom: 1.36rem;
-}
-h2 {
-  font-size: 1.728rem;
-}
-h3 {
-  font-size: 1.4rem;
-}
-h3,
-h4 {
-  line-height: 1.6rem;
-  margin-bottom: 1.36rem;
-}
-h4 {
-  font-size: 1.2rem;
-}
-h5,
-h6 {
-  font-size: 1rem;
-  line-height: 1.6rem;
-  margin-bottom: 1.36rem;
-}
-body,
-ol,
-p,
-pre,
-ul {
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-ol,
-p,
-pre,
-ul {
-  margin-bottom: 1.36rem;
-}
-@media (min-width: 600px) {
-  h1 {
-    font-size: 3rem;
-    line-height: 4.4rem;
-    margin: 2.5em 0 1.5em;
-  }
-  h1,
-  h2 {
-    margin-bottom: 1.496rem;
-  }
-  h2 {
-    font-size: 2rem;
-    line-height: 3.52rem;
-  }
-  h3 {
-    font-size: 2.1989rem;
-    line-height: 2.64rem;
-    margin-bottom: 1.496rem;
-  }
-  h4 {
-    font-size: 1.5554rem;
-  }
-  h4,
-  h5 {
-    line-height: 1.76rem;
-    margin-bottom: 1.496rem;
-  }
-  h5,
-  h6 {
-    font-size: 1.1rem;
-  }
-  h6 {
-    line-height: 1.76rem;
-    margin-bottom: 1.496rem;
-  }
-  body,
-  ol,
-  p,
-  pre,
-  ul {
-    font-size: 22px;
-    line-height: 1.5;
-  }
-  ol,
-  p,
-  pre,
-  ul {
-    margin-bottom: 1.496rem;
-  }
-}
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin: 2.5em 0 1.5em;
-  }
-
-  h1,
-  h2 {
-    margin-bottom: 1.632rem;
-  }
-  h2 {
-    font-size: 2rem;
-    line-height: 1.8em;
-  }
-  h3 {
-    font-size: 1.8rem;
-    line-height: 1.88rem;
-    margin-bottom: 1.632rem;
-  }
-  h4 {
-    font-size: 1.8rem;
-  }
-  h4,
-  h5 {
-    line-height: 1.92rem;
-    margin-bottom: 1.632rem;
-  }
-  h5,
-  h6 {
-    font-size: 1.2rem;
-  }
-  h6 {
-    line-height: 1.92rem;
-    margin-bottom: 1.632rem;
-  }
-  body,
-  ol,
-  p,
-  ul {
-    font-size: 26px;
-    line-height: 1.5;
-  }
-  pre {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-bottom: 2.2rem;
-  }
-  ol,
-  p,
-  ul {
-    margin-bottom: 1.632rem;
-  }
-}
-th {
-  font-weight: 600;
-}
-td,
-th {
-  border-bottom: 1px solid #595959;
-  overflow: auto;
-  padding: 0.75em;
-  text-align: left;
-  vertical-align: top;
-}
-thead th {
-  border-bottom: 1px solid #f9c412;
-}
-table {
-  display: table;
-}
-code,
-pre,
-table {
-  overflow-x: auto;
-}
-pre {
-  font-family:
-    Consolas,
-    Monaco,
-    Andale Mono,
-    Ubuntu Mono,
-    monospace;
-}
-pre code:not([class]) {
-  padding: 1.5em;
-  overflow-x: scroll;
-}
-code,
-kbd {
-  border-radius: 0.3em;
-  color: #e2777a;
-  padding: 0 0.3em;
-  font-family:
-    Consolas,
-    Monaco,
-    Andale Mono,
-    Ubuntu Mono,
-    monospace;
-  font-size: 90%;
-}
-code,
-kbd {
-  background: #2d2d2d;
-}
-kbd {
-  color: #7ec699;
-}
-mark {
-  background: #f9c412;
-  padding: 0 0.3em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family-headings);
-  font-weight: 800;
-  color: white;
-}
-h2,
-h4,
-h6 {
-  /* font-style: italic; */
-}
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-small {
-  color: #ccc;
-}
-hr {
-  border-bottom: 1px solid #eee;
-}
-figcaption {
-  color: #ccc;
-  margin-top: 0.75em;
-  font-size: 80%;
-}
-dt {
-  font-weight: 600;
-}
-@media (max-width: 767px) {
-  fieldset {
-    min-width: 0;
-  }
-  fieldset * {
-    flex-grow: 1;
-    page-break-before: auto;
-  }
-  x:-moz-any-link {
-    display: table-cell;
-  }
-}
-html {
-  font-family:
-    Inter UI,
-    sans-serif;
-}
-form {
-  padding: 1.5em 1.5em 0;
-  border: 0.2rem solid #202020;
-  margin-bottom: 1.5em;
-}
-form small {
-  font-style: italic;
-}
-fieldset {
-  padding: 0;
-  margin: 0;
-}
-fieldset legend {
-  font-size: 150%;
-  margin-bottom: 0.75em;
-}
-button,
-input,
-select,
-textarea {
-  border-radius: 0.3em;
-  display: inline-block;
-  padding: 0.75em;
-  max-width: 100%;
-}
-button + input[type="checkbox"],
-button + input[type="radio"],
-button + label,
-input + input[type="checkbox"],
-input + input[type="radio"],
-input + label,
-select + input[type="checkbox"],
-select + input[type="radio"],
-select + label,
-textarea + input[type="checkbox"],
-textarea + input[type="radio"],
-textarea + label {
-  page-break-before: always;
-}
-input,
-select,
-textarea {
-  margin-bottom: 1.5em;
-}
-textarea {
-  min-height: 7.5em;
-  min-width: 15em;
-}
-label {
-  display: inline-block;
-}
-label + * {
-  page-break-before: always;
-}
-fieldset > * {
-  display: block;
-}
-input,
-select {
-  display: inline;
-}
-fieldset > *,
-form > :not(fieldset) {
-  margin-right: 0.75em;
-}
-button,
-input[type="reset"],
-input[type="submit"] {
-  background: #f2f2f2;
-  color: #191919;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.75em 1.5em;
-  text-align: center;
-  margin: 0 0.75em 1.5em 0;
-}
-button:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-  background: #d9d9d9;
-  color: #000;
-}
-button[disabled],
-input[type="reset"][disabled],
-input[type="submit"][disabled] {
-  background: #e6e6e6;
-  color: #404040;
-  cursor: not-allowed;
-}
-button:not([disabled]),
-button[type="submit"],
-input[type="submit"] {
-  background: #f9c412;
-  color: #181818;
-}
-button:not([disabled]):hover,
-button[type="submit"]:hover,
-input[type="submit"]:hover {
-  background: #ba9005;
-  color: #000;
-}
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="datetime"],
-input[type="email"],
-input[type="file"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="phone"],
-input[type="range"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-select,
-textarea {
-  border: 1px solid #595959;
-  padding: 0.75em;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  flex-grow: 0;
-  margin: 0.75em 0.375em 0.75em 0;
-  vertical-align: middle;
-}
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  page-break-before: avoid;
-}
-select[multiple] {
-  min-width: 15em;
-}
+/* Base */
 * {
-  border: 0;
   box-sizing: border-box;
 }
-img,
-video {
-  max-width: 100%;
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 body {
   font-family: var(--font-family);
-  background: #191919;
-  color: #f4f4f4;
-}
-section {
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-}
-#menu-toggle {
-  display: none;
-}
-header label {
-  display: block;
-}
-#menu-toggle:checked ~ a {
-  display: block;
-  padding: 0.75em 0;
-  margin: 0 1.5em;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-}
-#menu-toggle:checked ~ a:last-of-type {
-  padding-bottom: 0;
-  border: 0;
-}
-#menu-toggle:checked ~ label {
-  border-bottom: 1px solid #aaa;
-  padding-bottom: 0.75em;
-}
-#menu-toggle:not(:checked) ~ a {
-  display: none;
-}
-header {
-  padding: 1.5rem 1.5rem 3rem;
-  width: 37.5em;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-header p {
-  margin-top: 0;
-}
-header #desktop-nav {
-  width: 100vw;
-  padding: 0.375em 1.5rem;
-  /* padding: 0.375em 1.5em; */
-  background: hsla(0, 0%, 10%, 0.9);
-  font-weight: 200;
-  text-align: right;
-}
-header #desktop-nav ul {
-  display: none;
-}
-@media (min-width: 600px) {
-  header #desktop-nav ul {
-    display: flex;
-    line-height: 1;
-  }
-}
-header nav h1 {
-  float: left;
-  font-size: inherit;
-  line-height: 1em;
+  background: var(--bg);
+  color: var(--text-body);
   margin: 0;
-  text-align: left;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
 }
-header nav a {
-  font-weight: 500;
-  font-size: 1.4rem;
-  text-decoration: none;
-  font-family: var(--font-family-headings);
-  color: var(--text-primary);
 
-  /* color: #181818; */
-  /* color: white; */
-  margin-left: 1.5em;
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-family-headings);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
-header #mobile-nav {
-  padding: 2rem 0;
-}
-header #mobile-nav a {
-  font-size: 2rem;
+
+h1 { 
+  font-size: 2.25rem; 
+  margin: 0 0 1.5rem;
   font-weight: 800;
 }
-header nav a .subtitle {
-  display: inline-block;
-  line-height: 1;
-  color: var(--text-subtle);
-  margin-top: -0.5rem;
-}
-header nav a:hover {
-  text-decoration: none;
-  color: var(--primary);
-}
-header nav a:first-of-type {
-  margin-left: auto;
-}
-header nav a:last-of-type {
-  margin-right: 1.5em;
-}
-header nav label {
-  color: #000;
-  cursor: pointer;
-  margin: 0;
-  font-style: normal;
-  text-align: right;
-}
-header .mobile-nav-toggle {
-  height: 32px;
-  font-size: 1rem;
-  padding: 0.5rem 1em;
-  margin-top: -7px;
-}
-header #mobile-nav li:last-of-type a {
-  margin-right: 0;
-}
-@media (min-width: 600px) {
-  #mobile-nav {
-    display: none !important;
-  }
-  header .mobile-nav-toggle {
-    display: none;
-  }
+
+h2 { 
+  font-size: 1.5rem; 
+  margin: 3rem 0 1rem;
+  color: var(--text-primary);
 }
 
-main {
-  max-width: 70rem;
-  margin: 0 auto;
-}
-footer {
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 3em;
-  text-align: center;
-}
-footer > * {
-  margin: 1.5em;
-}
-footer nav a img {
-  vertical-align: middle;
-}
-footer nav,
-footer p {
-  font-size: 90%;
-}
-article {
-  max-width: 30em;
-  padding: 1.5rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Clear floats after each paragraph to prevent layout issues */
-.post-content p::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-article.home {
-  width: 100%;
-  max-width: 57.5rem;
-}
-article.home h1 {
-  font-size: 3rem;
-  margin-top: 0.5em;
-}
-@media (min-width: 600px) {
-  article.home h1 {
-    /* margin-top: 1.5em; */
-  }
-}
-ol,
-ul {
-  margin-top: 0;
-}
-li dl,
-li ol,
-li ul {
-  margin-bottom: 0;
-}
-dl {
-  display: inline-block;
-  margin: 0 0 1.5em;
-}
-dt {
-  padding-top: 0.75em;
-  padding-left: 0.75em;
-}
-dd {
-  padding-bottom: 0.75em;
-  margin-left: 2.25em;
-}
-dd + dt {
-  border-top: 1px solid #f9c412;
-}
-blockquote {
-  border-left: 1px solid #f9c412;
-  padding: 0 1.5em;
-  margin: 1.5em 0 1.5em 1.5em;
-}
-blockquote footer {
-  background: none;
-  display: block;
-  color: #ccc;
-  padding: 0.75em 0;
-  font-size: 90%;
-  text-align: start;
-}
-img,
-video {
-  height: auto;
-  margin: 0 auto;
-}
-figure {
-  margin: 1.5em;
-}
-figure img {
-  display: block;
-}
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #ccc;
-  background: none;
-  font-family:
-    Consolas,
-    Monaco,
-    Andale Mono,
-    Ubuntu Mono,
-    monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-code[class*="language-"] {
-  padding: 0;
-}
-pre[class*="language-"] {
-  padding: 1em;
-  margin: 2em -6rem;
-  overflow: auto;
-}
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: #2d2d2d;
-}
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
-.token.block-comment,
-.token.cdata,
-.token.comment,
-.token.doctype,
-.token.prolog {
-  color: #999;
-}
-.token.punctuation {
-  color: #ccc;
-}
-.token.attr-name,
-.token.deleted,
-.token.namespace,
-.token.tag {
-  color: #e2777a;
-}
-.token.function-name {
-  color: #6196cc;
-}
-.token.boolean,
-.token.function,
-.token.number {
-  color: #f08d49;
-}
-.token.class-name,
-.token.constant,
-.token.property,
-.token.symbol {
-  color: #f8c555;
-}
-.token.atrule,
-.token.builtin,
-.token.important,
-.token.keyword,
-.token.selector {
-  color: #cc99cd;
-}
-.token.attr-value,
-.token.char,
-.token.regex,
-.token.string,
-.token.variable {
-  color: #7ec699;
-}
-.token.entity,
-.token.operator,
-.token.url {
-  color: #67cdcc;
-}
-.token.bold,
-.token.important {
-  font-weight: 700;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
-.token.inserted {
-  color: green;
-}
-
-input[type="submit"],
-button[type="submit"],
-button:not([disabled]) {
-  background: var(--primary);
-}
-input[type="submit"]:hover,
-button[type="submit"]:hover,
-button:not([disabled]):hover {
-  background: var(--primary-dark);
-}
-
-dd + dt {
-  border-top: 1px solid var(--primary);
-}
-
-blockquote {
-  border-left: 1px solid var(--primary);
-}
-
-mark {
-  background: var(--primary);
+h3 { 
+  font-size: 1.15rem; 
+  margin: 2rem 0 0.75rem; 
+  border: none;
+  color: var(--text-primary);
 }
 
 a {
   color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
 }
 
-.nowlist {
-  list-style: disc;
-  padding-left: 1em;
+a:hover {
+  opacity: 0.8;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+p {
+  margin: 0 0 1.25rem;
 }
 
-/* Subscribe Section */
-.subscribe-section {
-  margin-top: 3rem;
-  padding: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.subscribe-content {
-  max-width: 28rem;
-  margin: 0 auto;
-}
-
-.subscribe-heading {
-  font-family: var(--font-family-headings);
-  font-size: 1.5rem;
+strong {
   font-weight: 600;
-  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+
+/* Article content */
+article {
+  margin-bottom: 4rem;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+
+article blockquote {
+  border-left: 2px solid var(--primary);
+  margin: 2rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+article blockquote p {
+  margin-bottom: 0;
+}
+
+article ul, article ol {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+}
+
+article li {
+  margin-bottom: 0.625rem;
+  padding-left: 0.25rem;
+}
+
+article hr {
   border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 3rem 0;
 }
 
-.subscribe-text {
-  color: var(--text-subtle);
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
+/* Code blocks */
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.2em 0.45em;
+  border-radius: 0.25rem;
+  color: var(--text-primary);
 }
 
-.subscribe-form-row {
+pre {
+  background: #0a0a0a;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #1f1f1f;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #c9d1d9;
+}
+
+/* Prism.js syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata { color: #6a737d; }
+.token.punctuation { color: #ccc; }
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted { color: #f97583; }
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted { color: #9ecbff; }
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string { color: #79b8ff; }
+.token.atrule,
+.token.attr-value,
+.token.keyword { color: #b392f0; }
+.token.function,
+.token.class-name { color: #e1e4e8; }
+.token.regex,
+.token.important,
+.token.variable { color: #ffab70; }
+
+/* Subscribe form */
+.subscribe-section {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #222;
+}
+
+.subscribe-form {
   display: flex;
+  flex-direction: row;
   gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .subscribe-input {
   flex: 1;
-  min-width: 200px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 260px;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  border: 1px solid #2a2a2a;
   border-radius: 0.375rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-elevated);
   color: var(--text-primary);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  margin: 0;
+  transition: border-color 0.15s ease;
 }
 
 .subscribe-input:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(50, 250, 185, 0.2);
+  border-color: #444;
 }
 
 .subscribe-input::placeholder {
@@ -1389,68 +234,68 @@ a {
 }
 
 .subscribe-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.625rem 0.875rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   border-radius: 0.375rem;
   background: var(--primary);
   color: #000;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 110px;
+  min-width: 42px;
+  transition: background 0.15s ease;
 }
 
-.subscribe-button:hover:not(:disabled) {
+.subscribe-button:hover {
   background: var(--primary-dark);
 }
 
-.subscribe-button:active:not(:disabled) {
-  transform: scale(0.98);
-}
-
-.subscribe-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
 .subscribe-error {
-  color: #f87171;
-  font-size: 0.875rem;
-  margin: 0.75rem 0 0;
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .subscribe-success {
-  padding: 1rem;
-  background: rgba(50, 250, 185, 0.1);
-  border: 1px solid var(--primary);
-  border-radius: 0.375rem;
-}
-
-.subscribe-success p {
-  margin: 0;
   color: var(--primary);
-  font-weight: 500;
-}
-
-.subscribe-social {
-  margin-top: 1.5rem;
   font-size: 0.875rem;
-  color: var(--text-subtle);
+  margin-top: 0.75rem;
 }
 
-.subscribe-social a {
-  color: var(--primary);
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.25rem;
+  margin: 2rem 0;
 }
 
-.subscribe-social a:hover {
-  text-decoration: underline;
+.gallery-item {
+  overflow: hidden;
 }
 
-/* Utility classes for subscribe form */
+.gallery-item figcaption {
+  display: none;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0.25rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Utilities */
 .hidden {
   display: none !important;
 }
@@ -1464,16 +309,62 @@ a {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 480px) {
-  .subscribe-form-row {
-    flex-direction: column;
-  }
-  
-  .subscribe-input {
-    min-width: 100%;
-  }
-  
-  .subscribe-button {
-    width: 100%;
-  }
+/* Image wrappers */
+.img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.img-wrapper figure {
+  flex: 1 1 30%;
+  min-width: 200px;
+  margin: 0;
+}
+
+.img-wrapper img {
+  margin: 0;
+}
+
+.img-wrapper figcaption {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* Now page list */
+.nowlist {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.nowlist li {
+  margin-bottom: 1rem;
+}
+
+/* Post meta on article pages */
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-excerpt {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.post-tag {
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
