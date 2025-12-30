@@ -281,24 +281,35 @@ menuToggle.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-// Subscribe form handling
-const subscribeForm = document.getElementById("subscribe-form");
-if (subscribeForm) {
-  subscribeForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+// Subscribe form handling - supports multiple forms on page
+document.querySelectorAll(".subscribe-form").forEach((form) => {
+  const container = form.closest(".subscribe-container, .subscribe-section, [class*='mt-8']") || form.parentElement;
+  const emailInput = form.querySelector('input[name="email"]');
+  const button = form.querySelector("button[type='submit']");
+  const buttonText = button.querySelector(".button-text");
+  const buttonLoading = button.querySelector(".button-loading");
+  
+  // Find siblings - error and success elements are siblings of the form
+  const findSibling = (selector) => {
+    let el = form.nextElementSibling;
+    while (el) {
+      if (el.matches(selector)) return el;
+      el = el.nextElementSibling;
+    }
+    return container.querySelector(selector);
+  };
+  
+  const errorEl = findSibling(".subscribe-error");
+  const successEl = findSibling(".subscribe-success");
 
-    const form = e.target;
-    const emailInput = form.querySelector('input[name="email"]');
-    const button = form.querySelector("button[type='submit']");
-    const buttonText = button.querySelector(".button-text");
-    const buttonLoading = button.querySelector(".button-loading");
-    const errorEl = form.querySelector(".subscribe-error");
-    const successEl = document.getElementById("subscribe-success");
+  async function handleSubmit(e) {
+    e.preventDefault();
 
     const email = emailInput.value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errorEl.textContent = "Please enter a valid email address";
       errorEl.classList.remove("hidden");
+      emailInput.focus();
       return;
     }
 
@@ -306,6 +317,7 @@ if (subscribeForm) {
     buttonText.classList.add("hidden");
     buttonLoading.classList.remove("hidden");
     button.disabled = true;
+    emailInput.disabled = true;
 
     try {
       const response = await fetch("/.netlify/functions/subscribe", {
@@ -322,14 +334,27 @@ if (subscribeForm) {
       } else {
         errorEl.textContent = data.error || "Something went wrong. Please try again.";
         errorEl.classList.remove("hidden");
+        emailInput.focus();
       }
     } catch {
       errorEl.textContent = "Network error. Please try again.";
       errorEl.classList.remove("hidden");
+      emailInput.focus();
     } finally {
       buttonText.classList.remove("hidden");
       buttonLoading.classList.add("hidden");
       button.disabled = false;
+      emailInput.disabled = false;
+    }
+  }
+
+  form.addEventListener("submit", handleSubmit);
+
+  // Submit on Enter key (already works with form submit, but ensure consistent behavior)
+  emailInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      form.requestSubmit();
     }
   });
-}
+});
