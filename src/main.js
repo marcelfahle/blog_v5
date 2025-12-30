@@ -277,9 +277,11 @@ for (let img of document.querySelectorAll("img")) {
 
 const mobileMenu = document.getElementById("mobile-nav");
 const menuToggle = document.getElementsByClassName("mobile-nav-toggle")[0];
-menuToggle.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+}
 
 // Subscribe form handling - supports multiple forms on page
 document.querySelectorAll(".subscribe-form").forEach((form) => {
