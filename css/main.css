@@ -194,6 +194,68 @@ pre code {
 .token.important,
 .token.variable { color: #ffab70; }
 
+/* Project cards */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  opacity: 1;
+}
+
+.project-card__logo {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card--bold .project-card__logo {
+  padding: 2rem;
+}
+
+.project-card--bold .project-card__logo img {
+  max-width: 70%;
+  height: auto;
+}
+
+.project-card--pidro .project-card__logo {
+  background-image: url('/img/pidro-logo2.png');
+  background-size: 160%;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+}
+
+.project-card__desc {
+  padding: 1rem;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 /* Subscribe form */
 .subscribe-section {
   margin-top: 4rem;

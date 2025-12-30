@@ -65,8 +65,8 @@ class GalleryLightbox {
 
     // Regular article images (single image lightbox)
     document.querySelectorAll('article img').forEach(img => {
-      // Skip if already in a gallery
-      if (img.closest('.gallery')) return;
+      // Skip if already in a gallery or project card
+      if (img.closest('.gallery') || img.closest('.project-card')) return;
       
       img.style.cursor = 'pointer';
       img.addEventListener('click', () => {
