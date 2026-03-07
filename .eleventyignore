@@ -8,6 +8,7 @@ package-lock.json
 README.md
 CLAUDE.md
 AGENTS.md
+docs/
 \_11ty/
 third_party
 functions
