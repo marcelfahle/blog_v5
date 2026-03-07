@@ -132,6 +132,9 @@ importers:
       markdown-it-anchor:
         specifier: ^5.2.5
         version: 5.2.5(markdown-it@12.3.2)
+      netlify-plugin-cache:
+        specifier: ^1.0.3
+        version: 1.0.3
       node-fetch:
         specifier: ^2.6.7
         version: 2.6.7
@@ -4436,6 +4439,9 @@ packages:
     resolution: {integrity: sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==}
     engines: {node: ^18 || >=20}
     hasBin: true
+
+  netlify-plugin-cache@1.0.3:
+    resolution: {integrity: sha512-CTOwNWrTOP59T6y6unxQNnp1WX702v2R/faR5peSH94ebrYfyY4zT5IsRcIiHKq57jXeyCrhy0GLuTN8ktzuQg==}
 
   no-case@2.3.2:
     resolution: {integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==}
@@ -11150,6 +11156,8 @@ snapshots:
   nanoid@3.3.6: {}
 
   nanoid@5.1.6: {}
+
+  netlify-plugin-cache@1.0.3: {}
 
   no-case@2.3.2:
     dependencies:
