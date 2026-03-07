@@ -197,12 +197,12 @@ pre code {
 /* Project cards */
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin: 2.5rem 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .project-cards {
     grid-template-columns: 1fr;
   }
@@ -245,6 +245,16 @@ pre code {
   background-size: 160%;
   background-position: center 40%;
   background-repeat: no-repeat;
+}
+
+.project-card--founderwell .project-card__logo {
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.project-card--founderwell .project-card__logo img {
+  max-width: 90%;
+  height: auto;
 }
 
 .project-card__desc {
