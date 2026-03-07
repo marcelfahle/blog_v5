@@ -233,11 +233,13 @@ pre code {
 
 .project-card--bold .project-card__logo {
   padding: 0;
+  border-radius: 0;
 }
 
 .project-card--bold .project-card__logo img {
   max-width: 70%;
   height: auto;
+  border-radius: 0;
 }
 
 .project-card--pidro .project-card__logo {
@@ -250,12 +252,14 @@ pre code {
 .project-card--founderwell .project-card__logo {
   padding: 1rem;
   text-align: center;
+  border-radius: 0;
 }
 
 .project-card--founderwell .project-card__logo img {
   max-width: 90%;
   height: auto;
   margin: 0 auto;
+  border-radius: 0;
 }
 
 .project-card__desc {
