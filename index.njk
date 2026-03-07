@@ -4,17 +4,17 @@ date: Last Modified
 image: /img/og/opengraph-default.png
 ---
 
+{% if sanityPages.home %}
+<h1>{{ sanityPages.home.title }}</h1>
+{{ sanityPages.home.content | safe }}
+{% else %}
 <h1>Hey, I'm Marcel</h1>
-
 <p class="text-muted">A software engineer and founder based in Spain.</p>
-
 <p class="text-muted">I'm building <a href="https://bold.video" target="_blank">Bold Video</a>—video intelligence for coaching programs. We help coaches turn their video libraries into AI-powered implementation support so students actually succeed (and stick around). I also make <a href="https://pidro.online" target="_blank">Pidro</a>, a multiplayer card game for iOS and Android.</p>
-
 <p class="text-muted">My stack is Elixir and TypeScript, though these days most of my coding happens through AI.</p>
-
 <p class="text-muted">Outside of work, I'm usually with my two kids, out running, or reading. Originally from Germany, now happily settled in southern Spain.</p>
-
 <p class="font-semibold">Nice to have you here.</p>
+{% endif %}
 
 <div class="project-cards">
   <a href="https://boldvideo.com" target="_blank" rel="noopener" class="project-card project-card--bold">
