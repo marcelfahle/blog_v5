@@ -43,6 +43,7 @@
     "luxon": "^2.5.2",
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^5.2.5",
+    "netlify-plugin-cache": "^1.0.3",
     "node-fetch": "^2.6.7",
     "postcss": "^8.4.21",
     "pre-commit": "^1.2.2",

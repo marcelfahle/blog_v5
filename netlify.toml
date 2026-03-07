@@ -6,3 +6,12 @@
 
 [functions]
   directory = "netlify/functions"
+
+[[plugins]]
+package = "netlify-plugin-cache"
+
+  [plugins.inputs]
+  paths = [
+    "_site/img",
+    "img/og/generated"
+  ]
