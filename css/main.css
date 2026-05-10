@@ -197,12 +197,31 @@ pre code {
 /* Project cards */
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin: 2.5rem 0;
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  main,
+  article,
+  p,
+  h1,
+  h2,
+  .project-card,
+  .project-card__logo,
+  .project-card__desc {
+    max-width: 100%;
+  }
+
+  header nav > ul {
+    display: none !important;
+  }
+
   .project-cards {
     grid-template-columns: 1fr;
   }
@@ -212,19 +231,22 @@ pre code {
   display: flex;
   flex-direction: column;
   background: var(--bg-elevated);
-  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-3px);
   opacity: 1;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #171717;
 }
 
 .project-card__logo {
-  height: 170px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,9 +259,23 @@ pre code {
 }
 
 .project-card--bold .project-card__logo img {
-  max-width: 70%;
+  max-width: 68%;
   height: auto;
   border-radius: 0;
+}
+
+.project-card--sprintzero .project-card__logo {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 108, 55, 0.34), transparent 42%),
+    linear-gradient(135deg, #17110d 0%, #070707 100%);
+}
+
+.sprintzero-mark {
+  color: #ffb27a;
+  font-family: var(--font-family-headings);
+  font-size: clamp(2.1rem, 7vw, 3.7rem);
+  letter-spacing: -0.08em;
+  line-height: 1;
 }
 
 .project-card--pidro .project-card__logo {
@@ -253,10 +289,26 @@ pre code {
   padding: 1rem;
   text-align: center;
   border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(50, 250, 185, 0.16), transparent 45%),
+    linear-gradient(135deg, #141414 0%, #0a0f10 100%);
+}
+
+.project-card--founderwell .project-card__logo picture {
+  display: flex;
+  width: 88%;
+  max-width: 27rem;
+  min-height: 5.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
 }
 
 .project-card--founderwell .project-card__logo img {
-  max-width: 90%;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   border-radius: 0;
