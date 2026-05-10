@@ -1,37 +1,49 @@
 ---
 layout: layouts/home.njk
+title: Hey, I'm Marcel
+description: Software, AI, founder work, family, running, and a few projects I'm building from Spain.
 date: Last Modified
 image: /img/og/opengraph-default.png
 ---
 
-{% if sanityPages.homepage %}
-<h1>{{ sanityPages.homepage.title }}</h1>
-{{ sanityPages.homepage.content | safe }}
-{% else %}
 <h1>Hey, I'm Marcel</h1>
-<p class="text-muted">A software engineer and founder based in Spain.</p>
-<p class="text-muted">I'm building <a href="https://bold.video" target="_blank">Bold Video</a>—video intelligence for coaching programs. We help coaches turn their video libraries into AI-powered implementation support so students actually succeed (and stick around). I also make <a href="https://pidro.online" target="_blank">Pidro</a>, a multiplayer card game for iOS and Android.</p>
-<p class="text-muted">My stack is Elixir and TypeScript, though these days most of my coding happens through AI.</p>
-<p class="text-muted">Outside of work, I'm usually with my two kids, out running, or reading. Originally from Germany, now happily settled in southern Spain.</p>
-<p class="font-semibold">Nice to have you here.</p>
-{% endif %}
 
-<div class="project-cards">
+<p>I've been building software for about 25 years. Long enough to be skeptical of most hype, and close enough to the current AI shift to know this one is different.</p>
+
+<p>Most of my work now sits where product, engineering, and founder reality meet. I like small teams, useful systems, and tools that make people feel more capable instead of more impressed.</p>
+
+<p>I'm building <a href="https://boldvideo.com" target="_blank" rel="noopener noreferrer">Bold Video</a>, a video intelligence platform for coaching programs with large libraries that should be helping students instead of gathering dust.</p>
+
+<p>I also work on <a href="https://sprintzero.sh" target="_blank" rel="noopener noreferrer">SprintZero</a>, where we help SaaS teams modernize legacy codebases in focused 30-day sprints, and <a href="https://founderwell.com" target="_blank" rel="noopener noreferrer">FounderWell</a>, Vanessa's support system for founders in the messy middle between idea and exit.</p>
+
+<p>And I make <a href="https://pidro.online" target="_blank" rel="noopener noreferrer">Pidro</a>, a multiplayer card game with 70k players, because apparently I can't help myself.</p>
+
+<p>Based in Denia, Spain with my <a href="https://utmb.world/runner/2428139.monika.fahle" target="_blank" rel="noopener noreferrer">wife</a> and two kids. We run a lot.</p>
+
+<p>Nice to have you here.</p>
+
+<div class="project-cards" aria-label="Current projects">
   <a href="https://boldvideo.com" target="_blank" rel="noopener" class="project-card project-card--bold">
     <div class="project-card__logo">
       <img src="/img/BOLD-logo-neon.svg" alt="Bold Video" />
     </div>
-    <p class="project-card__desc">Bold Video — Turn your video library into an AI coach</p>
+    <p class="project-card__desc">Bold Video: AI answers from your coaching video library</p>
+  </a>
+  <a href="https://sprintzero.sh" target="_blank" rel="noopener" class="project-card project-card--sprintzero">
+    <div class="project-card__logo" aria-hidden="true">
+      <span class="sprintzero-mark">SprintZero</span>
+    </div>
+    <p class="project-card__desc">SprintZero: 30-day legacy codebase modernization</p>
   </a>
   <a href="https://founderwell.com" target="_blank" rel="noopener" class="project-card project-card--founderwell">
     <div class="project-card__logo">
       <img src="/img/founderwell-logo.png" alt="FounderWell" />
     </div>
-    <p class="project-card__desc">FounderWell — The #1 Ecosystem for Entrepreneurs</p>
+    <p class="project-card__desc">FounderWell: support for founders doing the hard part</p>
   </a>
   <a href="https://pidro.online" target="_blank" rel="noopener" class="project-card project-card--pidro">
     <div class="project-card__logo"></div>
-    <p class="project-card__desc">Pidro for iOS & Android. 70k players and counting</p>
+    <p class="project-card__desc">Pidro: iOS and Android card game with 70k players</p>
   </a>
 </div>
 
